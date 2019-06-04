@@ -67,5 +67,14 @@ namespace UPOReu
                 formObj.Show();
             }
         }
+
+        private void buttonJournal_Click(object sender, EventArgs e)
+        {
+            if (role > 2)
+            {
+                FormJournal formJ = new FormJournal(connection);
+                formJ.Show();
+            }
+        }
     }
 }
