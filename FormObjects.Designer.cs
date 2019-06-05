@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridViewState = new System.Windows.Forms.DataGridView();
             this.dataGridViewObjects = new System.Windows.Forms.DataGridView();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.огнетушителиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ответственныеЛицаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjects)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
@@ -61,16 +61,7 @@
             this.dataGridViewObjects.Size = new System.Drawing.Size(317, 291);
             this.dataGridViewObjects.TabIndex = 0;
             this.dataGridViewObjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(611, 280);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 2;
-            this.buttonSave.Text = "Сохранить";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.dataGridViewObjects.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewObjects_CellDoubleClick);
             // 
             // contextMenuStrip
             // 
@@ -78,7 +69,7 @@
             this.огнетушителиToolStripMenuItem,
             this.ответственныеЛицаToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(188, 70);
+            this.contextMenuStrip.Size = new System.Drawing.Size(188, 48);
             // 
             // огнетушителиToolStripMenuItem
             // 
@@ -94,6 +85,16 @@
             this.ответственныеЛицаToolStripMenuItem.Text = "Ответственные лица";
             this.ответственныеЛицаToolStripMenuItem.Click += new System.EventHandler(this.PersonToolStripMenuItem_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(611, 280);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 2;
+            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // FormObjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +105,7 @@
             this.Controls.Add(this.dataGridViewObjects);
             this.Name = "FormObjects";
             this.Text = "Список объектов";
+            this.Load += new System.EventHandler(this.FormObjects_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjects)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);

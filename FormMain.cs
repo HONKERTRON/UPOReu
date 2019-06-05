@@ -15,7 +15,7 @@ namespace UPOReu
     {
         public int role = 0;
         public Form aform;
-        SqlConnection connection;
+        public SqlConnection connection;
 
         public FormMain(SqlConnection connection, Form aform, int role)
         {
@@ -72,9 +72,33 @@ namespace UPOReu
         {
             if (role > 2)
             {
-                FormJournal formJ = new FormJournal(connection);
+                FormJRRTOSZ formJ = new FormJRRTOSZ(connection);
                 formJ.Show();
             }
+        }
+
+        private void buttonPeople_Click(object sender, EventArgs e)
+        {
+            if (role > 3)
+            {
+                FormPeople formPeople = new FormPeople(connection);
+                formPeople.Show();
+            }
+        }
+
+        private void buttonJUO_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPPS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonJUP_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

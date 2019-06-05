@@ -24,7 +24,7 @@ namespace UPOReu
         {
             ///TODO Finish registration
             connection.Open();
-            SqlCommand query = new SqlCommand("SELECT [ID_LUDI] FROM LUDI WHERE [LOGLUGI] = '"+ textBoxUsername.Text+"';", connection);
+            SqlCommand query = new SqlCommand("SELECT [idUSERS] FROM [USERS] WHERE [username] = '"+ textBoxUsername.Text+"';", connection);
             SqlDataReader reader = query.ExecuteReader();
             List<String> list = new List<String>();
             while (reader.Read())
@@ -45,7 +45,7 @@ namespace UPOReu
                 else
                 {
                     connection.Open();
-                    String cmd = "INSERT INTO LUDI([NAMLUDI], [FAMLUDI], [OTLUDI], [LOGLUGI], [PARLUDI]) VALUES ('" + textBoxName.Text + "', '" + textBoxLastName.Text + "', '" + textBoxPatronym.Text + "', '" + textBoxUsername.Text + "', HASHBYTES ('MD5', '" + textBoxPassword.Text + "'));";
+                    String cmd = "INSERT INTO [USERS]([name], [last_name], [patronym], [username], [password]) VALUES ('" + textBoxName.Text + "', '" + textBoxLastName.Text + "', '" + textBoxPatronym.Text + "', '" + textBoxUsername.Text + "', HASHBYTES ('MD5', '" + textBoxPassword.Text + "'));";
                     SqlCommand query_ = new SqlCommand(cmd, connection);
                     label1.Text = "Изменено " + Convert.ToString(query_.ExecuteNonQuery()) + " записей.";
                     connection.Close();

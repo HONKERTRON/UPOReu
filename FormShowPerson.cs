@@ -23,9 +23,10 @@ namespace UPOReu
             this.connection = connection;
             dataSetSP.Clear();
             connection.Open();
-            adapterSP = new SqlDataAdapter("SELECT [ID_OTVFACE], [NAM_OTVFACE], [FAM_OTVFACE], [OT_OTVFACE], [MAIL_OTVFACE], [NUM_OTVFACE] FROM [OTVFACE] WHERE [ID_OTVFACE] = " + id.ToString() + " ORDER BY [ID_OTVFACE] ASC;", connection);
-            adapterSP.Fill(dataSetSP, "OTVFACE");
-            dataGridView1.DataSource = dataSetSP.Tables["OTVFACE"];
+            String cmd = "SELECT [name], [last_name], [patronym], [phone_number], [email] FROM [USERS] WHERE [idUSERS] ='" + id.ToString() +"' ORDER BY [idUSERS] ASC;";
+            adapterSP = new SqlDataAdapter(cmd, connection);
+            adapterSP.Fill(dataSetSP, "USERS");
+            dataGridView1.DataSource = dataSetSP.Tables["USERS"];
             connection.Close();
         }
 

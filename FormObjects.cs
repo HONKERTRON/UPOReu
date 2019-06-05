@@ -23,19 +23,19 @@ namespace UPOReu
         {
             dataSetObject.Clear();
             connection.Open();
-            adapterObject = new SqlDataAdapter("SELECT [ID_PALAS], [NAM_PALAS], [ADREAS_PALAS] FROM [PALAS] ORDER BY [ID_PALAS] ASC", connection);
+            adapterObject = new SqlDataAdapter("SELECT [idOBJECT], [name_object], [adress] FROM [OBJECTS] ORDER BY [idOBJECT] ASC", connection);
             builderObjects = new SqlCommandBuilder(adapterObject);
-            adapterObject.Fill(dataSetObject, "PALAS");
-            dataGridViewObjects.DataSource = dataSetObject.Tables["PALAS"];
+            adapterObject.Fill(dataSetObject, "OBJECTS");
+            dataGridViewObjects.DataSource = dataSetObject.Tables["OBJECTS"];
             connection.Close();
             if(secondary_id >= 0)
             {
                 dataSetState.Clear();
                 connection.Open();
-                adapterState = new SqlDataAdapter("SELECT [ID_SOS_PALASE], [NAM_SOS_PALASE], [OP_SOS_PALASE] FROM [SOS_PALASE] ORDER BY [ID_SOS_PALASE] ASC", connection);
+                adapterState = new SqlDataAdapter("SELECT [OBJECT_STATEid], [date], [description] FROM [OBJECT_STATE] WHERE [idOBJECT] = " + secondary_id.ToString() + " ORDER BY [OBJECT_STATEid] ASC", connection);
                 builderState = new SqlCommandBuilder(adapterState);
-                adapterState.Fill(dataSetState, "SOS_PALASE");
-                dataGridViewState.DataSource = dataSetState.Tables["SOS_PALASE"];
+                adapterState.Fill(dataSetState, "OBJECT_STATE");
+                dataGridViewState.DataSource = dataSetState.Tables["OBJECT_STATE"];
                 connection.Close();
             }
         }
@@ -61,7 +61,7 @@ namespace UPOReu
             Int32 idPerson = -1;
             Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
             connection.Open();
-            String cmd = "SELECT [ID_OTVFACE] FROM [PALAS] WHERE [ID_PALAS] = "+ idObject.ToString() +" ;";
+            String cmd = "SELECT [idUSERS] FROM [OBJECTS] WHERE [idUSERS] = " + idObject.ToString() +" ;";
             SqlCommand query_ = new SqlCommand(cmd, connection);
             idPerson = Convert.ToInt32(query_.ExecuteScalar());
             connection.Close();
@@ -70,21 +70,30 @@ namespace UPOReu
             formSP.Show();
         }
 
+        private void dataGridViewObjects_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+            RefreshWindow(idObject);
+        }
+
+        private void FormObjects_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
             adapterObject.UpdateCommand = builderObjects.GetUpdateCommand();
             adapterObject.InsertCommand = builderObjects.GetInsertCommand();
             adapterObject.DeleteCommand = builderObjects.GetDeleteCommand();
 
-            adapterObject.Update(dataSetObject.Tables["PALAS"]);
+            adapterObject.Update(dataSetObject.Tables["OBJECTS"]);
             dataSetObject.AcceptChanges();
 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
-            RefreshWindow(idObject);
         }
     }
 }

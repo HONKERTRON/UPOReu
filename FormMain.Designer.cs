@@ -28,25 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonPeople = new System.Windows.Forms.Button();
             this.buttonCreateAccs = new System.Windows.Forms.Button();
             this.buttonObjects = new System.Windows.Forms.Button();
-            this.buttonJournal = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttonJournalRR = new System.Windows.Forms.Button();
+            this.buttonJUO = new System.Windows.Forms.Button();
+            this.buttonPPS = new System.Windows.Forms.Button();
+            this.buttonJUP = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonPeople
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonPeople.Location = new System.Drawing.Point(12, 12);
+            this.buttonPeople.Name = "buttonPeople";
+            this.buttonPeople.Size = new System.Drawing.Size(260, 30);
+            this.buttonPeople.TabIndex = 0;
+            this.buttonPeople.Text = "Люди";
+            this.buttonPeople.UseVisualStyleBackColor = true;
+            this.buttonPeople.Click += new System.EventHandler(this.buttonPeople_Click);
             // 
             // buttonCreateAccs
             // 
-            this.buttonCreateAccs.Location = new System.Drawing.Point(12, 139);
+            this.buttonCreateAccs.Location = new System.Drawing.Point(12, 48);
             this.buttonCreateAccs.Name = "buttonCreateAccs";
             this.buttonCreateAccs.Size = new System.Drawing.Size(260, 23);
             this.buttonCreateAccs.TabIndex = 1;
@@ -56,7 +59,7 @@
             // 
             // buttonObjects
             // 
-            this.buttonObjects.Location = new System.Drawing.Point(12, 168);
+            this.buttonObjects.Location = new System.Drawing.Point(12, 77);
             this.buttonObjects.Name = "buttonObjects";
             this.buttonObjects.Size = new System.Drawing.Size(260, 23);
             this.buttonObjects.TabIndex = 2;
@@ -64,35 +67,58 @@
             this.buttonObjects.UseVisualStyleBackColor = true;
             this.buttonObjects.Click += new System.EventHandler(this.buttonObjects_Click);
             // 
-            // buttonJournal
+            // buttonJournalRR
             // 
-            this.buttonJournal.Location = new System.Drawing.Point(12, 197);
-            this.buttonJournal.Name = "buttonJournal";
-            this.buttonJournal.Size = new System.Drawing.Size(260, 23);
-            this.buttonJournal.TabIndex = 3;
-            this.buttonJournal.Text = "Журнал";
-            this.buttonJournal.UseVisualStyleBackColor = true;
-            this.buttonJournal.Click += new System.EventHandler(this.buttonJournal_Click);
+            this.buttonJournalRR.Location = new System.Drawing.Point(12, 106);
+            this.buttonJournalRR.Name = "buttonJournalRR";
+            this.buttonJournalRR.Size = new System.Drawing.Size(260, 23);
+            this.buttonJournalRR.TabIndex = 3;
+            this.buttonJournalRR.Text = "Журнал РРТОСЗ";
+            this.buttonJournalRR.UseVisualStyleBackColor = true;
+            this.buttonJournalRR.Click += new System.EventHandler(this.buttonJournal_Click);
             // 
-            // button5
+            // buttonJUO
             // 
-            this.button5.Location = new System.Drawing.Point(12, 226);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonJUO.Location = new System.Drawing.Point(12, 135);
+            this.buttonJUO.Name = "buttonJUO";
+            this.buttonJUO.Size = new System.Drawing.Size(260, 23);
+            this.buttonJUO.TabIndex = 4;
+            this.buttonJUO.Text = "Журнал УО";
+            this.buttonJUO.UseVisualStyleBackColor = true;
+            this.buttonJUO.Click += new System.EventHandler(this.buttonJUO_Click);
+            // 
+            // buttonPPS
+            // 
+            this.buttonPPS.Location = new System.Drawing.Point(12, 164);
+            this.buttonPPS.Name = "buttonPPS";
+            this.buttonPPS.Size = new System.Drawing.Size(260, 23);
+            this.buttonPPS.TabIndex = 5;
+            this.buttonPPS.Text = "Журнал ППСППЗ";
+            this.buttonPPS.UseVisualStyleBackColor = true;
+            this.buttonPPS.Click += new System.EventHandler(this.buttonPPS_Click);
+            // 
+            // buttonJUP
+            // 
+            this.buttonJUP.Location = new System.Drawing.Point(12, 193);
+            this.buttonJUP.Name = "buttonJUP";
+            this.buttonJUP.Size = new System.Drawing.Size(260, 23);
+            this.buttonJUP.TabIndex = 6;
+            this.buttonJUP.Text = "Журнал УПППТ";
+            this.buttonJUP.UseVisualStyleBackColor = true;
+            this.buttonJUP.Click += new System.EventHandler(this.buttonJUP_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.buttonJournal);
+            this.Controls.Add(this.buttonJUP);
+            this.Controls.Add(this.buttonPPS);
+            this.Controls.Add(this.buttonJUO);
+            this.Controls.Add(this.buttonJournalRR);
             this.Controls.Add(this.buttonObjects);
             this.Controls.Add(this.buttonCreateAccs);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonPeople);
             this.Name = "FormMain";
             this.Text = "Главное окно";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
@@ -103,10 +129,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonPeople;
         private System.Windows.Forms.Button buttonCreateAccs;
         private System.Windows.Forms.Button buttonObjects;
-        private System.Windows.Forms.Button buttonJournal;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonJournalRR;
+        private System.Windows.Forms.Button buttonJUO;
+        private System.Windows.Forms.Button buttonPPS;
+        private System.Windows.Forms.Button buttonJUP;
     }
 }
