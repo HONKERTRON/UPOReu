@@ -10,7 +10,7 @@ CREATE TABLE [USERS] (
   [patronym] VARCHAR(255) NULL,
   [phone_number] VARCHAR(255) NULL,
   [email] VARCHAR(255) NULL,
-  [role] INT NOT NULL,
+  [role] INT NOT NULL DEFAULT 1,
   [username] VARCHAR(255) NOT NULL,
   [password] VARCHAR(255) NOT NULL,
   PRIMARY KEY ([idUSERS]))
@@ -26,7 +26,11 @@ CREATE TABLE [RRTOSZ] (
   [description] VARCHAR(255) NULL,
   [result_state] VARCHAR(255) NULL,
   [result_work] VARCHAR(255) NULL,
+  [worker] INT NULL;
   PRIMARY KEY ([idRRTOSZ]),
+  CONSTRAINT [fk_RRTOSZ_USERS1]
+    FOREIGN KEY ([worker])
+    REFERENCES [USERS] ([idUSERS])
     )
 
 -- -----------------------------------------------------
@@ -38,7 +42,7 @@ CREATE TABLE [PPSPPZ] (
   [person] INT  NOT NULL,
   [defect] VARCHAR(255) NULL,
   [fixed] VARCHAR(255) NULL,
-  [person_check] INT  NOT NULL,
+  [person_check] INT NOT NULL,
   PRIMARY KEY ([idPPSPPZ]),
   
   
@@ -94,18 +98,18 @@ CREATE TABLE [OBJECTS] (
   [idOBJECT] INT NOT NULL IDENTITY(1, 1),
   [name_object] VARCHAR(255) NOT NULL,
   [adress] VARCHAR(255) NOT NULL,
-  [idUSERS] INT  NOT NULL,
-  [RRTOSZ_idRRTOSZ] INT NOT NULL,
-  [idPPSPPZ] INT NOT NULL,
-  [idUPPPT] INT NOT NULL,
-  [idUO] INT NOT NULL,
+  [idUSERS] INT NULL,
+  [idRRTOSZ] INT NULL,
+  [idPPSPPZ] INT NULL,
+  [idUPPPT] INT NULL,
+  [idUO] INT NULL,
   PRIMARY KEY ([idOBJECT]),
   CONSTRAINT [fk_OBJECT_USERS]
     FOREIGN KEY ([idUSERS])
     REFERENCES [USERS] ([idUSERS])
     ,
   CONSTRAINT [fk_OBJECTS_RRTOSZ1]
-    FOREIGN KEY ([RRTOSZ_idRRTOSZ])
+    FOREIGN KEY ([idRRTOSZ])
     REFERENCES [RRTOSZ] ([idRRTOSZ])
     ,
   CONSTRAINT [fk_OBJECTS_PPSPPZ1]
@@ -166,7 +170,7 @@ CREATE TABLE [EXTINGUSHER] (
   [factory_number] INT NULL,
   [date_created] DATE NULL,
   [concentration] VARCHAR(255) NULL,
-  [TYPE_EX_type_ex] INT NOT NULL,
+  [type_ex] INT NOT NULL,
   CONSTRAINT [fk_EXTINGUSHER_UO1]
     FOREIGN KEY ([UO_idUO])
     REFERENCES [UO] ([idUO])
@@ -176,7 +180,7 @@ CREATE TABLE [EXTINGUSHER] (
     REFERENCES [MANUFACTURER] ([idMANUFACTURER])
     ,
   CONSTRAINT [fk_EXTINGUSHER_TYPE_EX1]
-    FOREIGN KEY ([TYPE_EX_type_ex])
+    FOREIGN KEY ([type_ex])
     REFERENCES [TYPE_EX] ([type_ex])
     )
 
@@ -194,4 +198,19 @@ CREATE TABLE [DETAILS] (
     )
 
 
-INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('admin', 'admin', 'admin', HASHBYTES ('MD5', 'eO3VRUuP'));
+INSERT INTO [USERS]([name], [last_name], [username], [password], [role]) VALUES ('admin', 'admin', 'admin', HASHBYTES ('MD5', 'eO3VRUuP'), 10);
+
+INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('name1', 'lastname1', 'username1', HASHBYTES ('MD5', 'password1'));
+INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('name2', 'lastname2', 'username2', HASHBYTES ('MD5', 'password2'));
+INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('name3', 'lastname3', 'username3', HASHBYTES ('MD5', 'password3'));
+INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('name4', 'lastname4', 'username4', HASHBYTES ('MD5', 'password4'));
+INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('name5', 'lastname5', 'username5', HASHBYTES ('MD5', 'password5'));
+
+INSERT INTO [OBJECTS]([name_object], [adress]) VALUES ('name1', 'adress1');
+INSERT INTO [OBJECTS]([name_object], [adress]) VALUES ('name2', 'adress2');
+INSERT INTO [OBJECTS]([name_object], [adress]) VALUES ('name3', 'adress3');
+INSERT INTO [OBJECTS]([name_object], [adress]) VALUES ('name4', 'adress4');
+
+INSERT INTO [OBJECT_STATE]([date], [description], [idOBJECT]) VALUES ('2019-06-05', 'decs1', 1);
+INSERT INTO [OBJECT_STATE]([date], [description], [idOBJECT]) VALUES ('2019-06-06', 'decs2', 2);
+INSERT INTO [OBJECT_STATE]([date], [description], [idOBJECT]) VALUES ('2019-06-07', 'decs3', 3);
