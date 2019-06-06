@@ -23,10 +23,10 @@ namespace UPOReu
             this.connection = connection;
 
             connection.Open();
-            String cmd = "";
+            String cmd = "SELECT * FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] WHERE [EXTINGUSHER].[idEXTINGUSHER] = " + id.ToString() + ";";
             adapterSP = new SqlDataAdapter(cmd, connection);
-            adapterSP.Fill(dataSetSP, "OGN");
-            dataGridViewEx.DataSource = dataSetSP.Tables["OGN"];
+            adapterSP.Fill(dataSetSP, "EXTINGUSHER");
+            dataGridViewEx.DataSource = dataSetSP.Tables["EXTINGUSHER"];
             connection.Close();
         }
 

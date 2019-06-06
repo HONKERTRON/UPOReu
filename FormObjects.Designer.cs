@@ -32,8 +32,11 @@
             this.dataGridViewState = new System.Windows.Forms.DataGridView();
             this.dataGridViewObjects = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.огнетушителиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ответственныеЛицаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PersonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PPSPPZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RRTOSZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UPPPTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjects)).BeginInit();
@@ -66,24 +69,48 @@
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.огнетушителиToolStripMenuItem,
-            this.ответственныеЛицаToolStripMenuItem});
+            this.PersonsToolStripMenuItem,
+            this.UOToolStripMenuItem,
+            this.PPSPPZToolStripMenuItem,
+            this.RRTOSZToolStripMenuItem,
+            this.UPPPTToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(188, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(240, 136);
             // 
-            // огнетушителиToolStripMenuItem
+            // PersonsToolStripMenuItem
             // 
-            this.огнетушителиToolStripMenuItem.Name = "огнетушителиToolStripMenuItem";
-            this.огнетушителиToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.огнетушителиToolStripMenuItem.Text = "Огнетушители";
-            this.огнетушителиToolStripMenuItem.Click += new System.EventHandler(this.ExtingusherToolStripMenuItem_Click);
+            this.PersonsToolStripMenuItem.Name = "PersonsToolStripMenuItem";
+            this.PersonsToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.PersonsToolStripMenuItem.Text = "Ответственные лица";
+            this.PersonsToolStripMenuItem.Click += new System.EventHandler(this.PersonToolStripMenuItem_Click);
             // 
-            // ответственныеЛицаToolStripMenuItem
+            // UOToolStripMenuItem
             // 
-            this.ответственныеЛицаToolStripMenuItem.Name = "ответственныеЛицаToolStripMenuItem";
-            this.ответственныеЛицаToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.ответственныеЛицаToolStripMenuItem.Text = "Ответственные лица";
-            this.ответственныеЛицаToolStripMenuItem.Click += new System.EventHandler(this.PersonToolStripMenuItem_Click);
+            this.UOToolStripMenuItem.Name = "UOToolStripMenuItem";
+            this.UOToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.UOToolStripMenuItem.Text = "Журнал учета огнетушителей";
+            this.UOToolStripMenuItem.Click += new System.EventHandler(this.UOToolStripMenuItem_Click);
+            // 
+            // PPSPPZToolStripMenuItem
+            // 
+            this.PPSPPZToolStripMenuItem.Name = "PPSPPZToolStripMenuItem";
+            this.PPSPPZToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.PPSPPZToolStripMenuItem.Text = "ППСППЗ";
+            this.PPSPPZToolStripMenuItem.Click += new System.EventHandler(this.PPSPPZToolStripMenuItem_Click);
+            // 
+            // RRTOSZToolStripMenuItem
+            // 
+            this.RRTOSZToolStripMenuItem.Name = "RRTOSZToolStripMenuItem";
+            this.RRTOSZToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.RRTOSZToolStripMenuItem.Text = "РРТОСЗ";
+            this.RRTOSZToolStripMenuItem.Click += new System.EventHandler(this.RRTOSZToolStripMenuItem_Click);
+            // 
+            // UPPPTToolStripMenuItem
+            // 
+            this.UPPPTToolStripMenuItem.Name = "UPPPTToolStripMenuItem";
+            this.UPPPTToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.UPPPTToolStripMenuItem.Text = "УПППТ";
+            this.UPPPTToolStripMenuItem.Click += new System.EventHandler(this.UPPPTToolStripMenuItem_Click);
             // 
             // buttonSave
             // 
@@ -118,7 +145,10 @@
         private System.Windows.Forms.DataGridView dataGridViewObjects;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem огнетушителиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ответственныеЛицаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PersonsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PPSPPZToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RRTOSZToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UPPPTToolStripMenuItem;
     }
 }

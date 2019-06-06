@@ -72,8 +72,8 @@ namespace UPOReu
         {
             if (role > 2)
             {
-                FormJRRTOSZ formJ = new FormJRRTOSZ(connection);
-                formJ.Show();
+                FormRRTOSZ formRRTOSZ = new FormRRTOSZ(connection, -1);
+                formRRTOSZ.Show();
             }
         }
 
@@ -88,17 +88,20 @@ namespace UPOReu
 
         private void buttonJUO_Click(object sender, EventArgs e)
         {
-
+            FormUO formUO = new FormUO(connection, -1);
+            formUO.Show();
         }
 
         private void buttonPPS_Click(object sender, EventArgs e)
         {
-
+            FormPPSPPZ formPPSPPZ = new FormPPSPPZ(connection, -1);
+            formPPSPPZ.Show();
         }
 
         private void buttonJUP_Click(object sender, EventArgs e)
         {
-
+            FormUPPPT formUPPPT = new FormUPPPT(connection, -1);
+            formUPPPT.Show();
         }
     }
 }

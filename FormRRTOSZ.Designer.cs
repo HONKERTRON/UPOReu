@@ -1,6 +1,6 @@
 ﻿namespace UPOReu
 {
-    partial class FormJRRTOSZ
+    partial class FormRRTOSZ
     {
         /// <summary>
         /// Required designer variable.

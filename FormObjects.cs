@@ -81,6 +81,38 @@ namespace UPOReu
 
         }
 
+        private void UOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+
+            FormUO formUO = new FormUO(connection, idObject);
+            formUO.Show();
+        }
+
+        private void PPSPPZToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+
+            FormPPSPPZ formPPSPPZ = new FormPPSPPZ(connection, idObject);
+            formPPSPPZ.Show();
+        }
+
+        private void RRTOSZToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+
+            FormRRTOSZ formRRTOSZ = new FormRRTOSZ(connection, idObject);
+            formRRTOSZ.Show();
+        }
+
+        private void UPPPTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+
+            FormUPPPT formUPPPT = new FormUPPPT(connection, idObject);
+            formUPPPT.Show();
+        }
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
             adapterObject.UpdateCommand = builderObjects.GetUpdateCommand();

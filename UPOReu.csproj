@@ -51,11 +51,17 @@
     <Compile Include="FormExtingusher.Designer.cs">
       <DependentUpon>FormExtingusher.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormJournal.cs">
+    <Compile Include="FormPPSPPZ.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormJournal.Designer.cs">
-      <DependentUpon>FormJournal.cs</DependentUpon>
+    <Compile Include="FormPPSPPZ.Designer.cs">
+      <DependentUpon>FormPPSPPZ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRRTOSZ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRRTOSZ.Designer.cs">
+      <DependentUpon>FormRRTOSZ.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -87,11 +93,23 @@
     <Compile Include="FormReg.Designer.cs">
       <DependentUpon>FormReg.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUPPPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUPPPT.Designer.cs">
+      <DependentUpon>FormUPPPT.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormShowPerson.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormShowPerson.Designer.cs">
       <DependentUpon>FormShowPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUO.Designer.cs">
+      <DependentUpon>FormUO.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,8 +119,11 @@
     <EmbeddedResource Include="FormExtingusher.resx">
       <DependentUpon>FormExtingusher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormJournal.resx">
-      <DependentUpon>FormJournal.cs</DependentUpon>
+    <EmbeddedResource Include="FormPPSPPZ.resx">
+      <DependentUpon>FormPPSPPZ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRRTOSZ.resx">
+      <DependentUpon>FormRRTOSZ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -118,6 +139,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormShowPerson.resx">
       <DependentUpon>FormShowPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUO.resx">
+      <DependentUpon>FormUO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUPPPT.resx">
+      <DependentUpon>FormUPPPT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
