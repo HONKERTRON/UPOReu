@@ -82,7 +82,7 @@
             this.dataGridViewPeople.Name = "dataGridViewPeople";
             this.dataGridViewPeople.Size = new System.Drawing.Size(413, 315);
             this.dataGridViewPeople.TabIndex = 0;
-            this.dataGridViewPeople.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPeople_CellContentDoubleClick);
+            this.dataGridViewPeople.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPeople_CellContentDoubleClick);
             // 
             // FormPeople
             // 
@@ -106,7 +106,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dataGridViewPeople;
+        public System.Windows.Forms.DataGridView dataGridViewPeople;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxLastname;
     }

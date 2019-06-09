@@ -40,6 +40,7 @@
             this.dataGridViewUO.Name = "dataGridViewUO";
             this.dataGridViewUO.Size = new System.Drawing.Size(526, 325);
             this.dataGridViewUO.TabIndex = 0;
+            this.dataGridViewUO.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUO_CellContentClick);
             this.dataGridViewUO.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUO_CellDoubleClick);
             // 
             // FormUO

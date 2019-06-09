@@ -40,6 +40,7 @@
             this.dataGridViewPPSPPZ.Name = "dataGridViewPPSPPZ";
             this.dataGridViewPPSPPZ.Size = new System.Drawing.Size(284, 261);
             this.dataGridViewPPSPPZ.TabIndex = 0;
+            this.dataGridViewPPSPPZ.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPPSPPZ_CellContentClick);
             // 
             // FormPPSPPZ
             // 

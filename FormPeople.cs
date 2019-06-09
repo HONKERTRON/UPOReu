@@ -16,6 +16,7 @@ namespace UPOReu
         public SqlConnection connection;
         public SqlDataAdapter adapterPeople;
         public DataSet dataSetPeople = new DataSet();
+        public int select = 0;
 
         public void RefreshWindow()
         {
@@ -28,10 +29,11 @@ namespace UPOReu
             connection.Close();
         }
 
-        public FormPeople(SqlConnection connection)
+        public FormPeople(SqlConnection connection, int mode)
         {
             InitializeComponent();
             this.connection = connection;
+            this.select = mode;
             RefreshWindow();
         }
 
@@ -52,9 +54,18 @@ namespace UPOReu
 
         private void dataGridViewPeople_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Int32 idPerson = Convert.ToInt32(dataGridViewPeople.Rows[dataGridViewPeople.SelectedCells[0].RowIndex].Cells[0].Value);
-            FormShowPerson formSP = new FormShowPerson(connection, idPerson);
-            formSP.Show();
+            if (select > 0)
+            {
+                Int32 idPerson = Convert.ToInt32(dataGridViewPeople.Rows[dataGridViewPeople.SelectedCells[0].RowIndex].Cells[0].Value);
+                select = idPerson;
+                Close();
+            }
+            else
+            {
+                Int32 idPerson = Convert.ToInt32(dataGridViewPeople.Rows[dataGridViewPeople.SelectedCells[0].RowIndex].Cells[0].Value);
+                FormShowPerson formSP = new FormShowPerson(connection, idPerson);
+                formSP.Show();
+            }
         }
     }
 }

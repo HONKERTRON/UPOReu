@@ -27,9 +27,15 @@ namespace UPOReu
             adapterPPSPPZ.Fill(dataSetPPSPPZ, "PPSPPZ");
             dataGridViewPPSPPZ.DataSource = dataSetPPSPPZ.Tables["PPSPPZ"];
             connection.Close();
+            dataGridViewPPSPPZ.Columns[0].ReadOnly = true;
         }
 
         private void FormPPSPPZ_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewPPSPPZ_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

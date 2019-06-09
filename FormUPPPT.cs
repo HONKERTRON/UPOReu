@@ -27,9 +27,15 @@ namespace UPOReu
             adapterUPPPT.Fill(dataSetUPPPT, "UPPPT");
             dataGridViewUPPPT.DataSource = dataSetUPPPT.Tables["UPPPT"];
             connection.Close();
+            dataGridViewUPPPT.Columns[0].ReadOnly = true;
         }
 
         private void FormUPPPT_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewUPPPT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

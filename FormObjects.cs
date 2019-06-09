@@ -18,6 +18,7 @@ namespace UPOReu
         public DataSet dataSetObject = new DataSet();
         public DataSet dataSetState = new DataSet();
         public SqlCommandBuilder builderObjects, builderState;
+        public int selid = -1;
 
         public void RefreshWindow(int secondary_id)
         {
@@ -28,7 +29,8 @@ namespace UPOReu
             adapterObject.Fill(dataSetObject, "OBJECTS");
             dataGridViewObjects.DataSource = dataSetObject.Tables["OBJECTS"];
             connection.Close();
-            if(secondary_id >= 0)
+            dataGridViewObjects.Columns[0].ReadOnly = true;
+            if (secondary_id >= 0)
             {
                 dataSetState.Clear();
                 connection.Open();
@@ -37,7 +39,8 @@ namespace UPOReu
                 adapterState.Fill(dataSetState, "OBJECT_STATE");
                 dataGridViewState.DataSource = dataSetState.Tables["OBJECT_STATE"];
                 connection.Close();
-            }
+                dataGridViewState.Columns[0].ReadOnly = true;
+            }      
         }
 
         public FormObjects(SqlConnection connection)
@@ -45,7 +48,7 @@ namespace UPOReu
             InitializeComponent();
             this.connection = connection;
             builderObjects = new SqlCommandBuilder(adapterObject);
-            RefreshWindow(-1); 
+            RefreshWindow(-1);
         }
 
         private void ExtingusherToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,7 +64,7 @@ namespace UPOReu
             Int32 idPerson = -1;
             Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
             connection.Open();
-            String cmd = "SELECT [idUSERS] FROM [OBJECTS] WHERE [idUSERS] = " + idObject.ToString() +" ;";
+            String cmd = "SELECT [idUSERS] FROM [OBJECTS] WHERE [idOBJECT] = " + idObject.ToString() +";";
             SqlCommand query_ = new SqlCommand(cmd, connection);
             idPerson = Convert.ToInt32(query_.ExecuteScalar());
             connection.Close();
@@ -72,8 +75,11 @@ namespace UPOReu
 
         private void dataGridViewObjects_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
-            RefreshWindow(idObject);
+            if (dataGridViewObjects.SelectedCells[0].RowIndex < dataGridViewObjects.RowCount-1)
+            {
+                Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+                RefreshWindow(idObject);
+            }
         }
 
         private void FormObjects_Load(object sender, EventArgs e)
@@ -111,6 +117,26 @@ namespace UPOReu
 
             FormUPPPT formUPPPT = new FormUPPPT(connection, idObject);
             formUPPPT.Show();
+        }
+
+        private void ChosePersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+            FormPeople formPeople = new FormPeople(connection, 1);
+            formPeople.dataGridViewPeople.CellDoubleClick += (senderObj, eargs) =>
+            {
+                this.selid = formPeople.select;
+                if (selid > 0)
+                {
+                    connection.Open();
+                    String cmd = "UPDATE [OBJECTS] SET [idUSERS] = " + selid.ToString() + " WHERE [idOBJECT] = " + idObject.ToString() + " ;";
+                    SqlCommand query_ = new SqlCommand(cmd, connection);
+                    int res = Convert.ToInt32(query_.ExecuteScalar());
+                    connection.Close();
+                }
+                formPeople.Close();
+            };
+            formPeople.Show();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

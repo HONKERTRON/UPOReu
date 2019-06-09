@@ -27,6 +27,7 @@ namespace UPOReu
             adapterUO.Fill(dataSetUO, "UO");
             dataGridViewUO.DataSource = dataSetUO.Tables["UO"];
             connection.Close();
+            dataGridViewUO.Columns[0].ReadOnly = true;
         }
 
         private void dataGridViewUO_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -38,6 +39,11 @@ namespace UPOReu
         }
 
         private void FormUO_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewUO_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

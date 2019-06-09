@@ -16,6 +16,7 @@ namespace UPOReu
         public int role = 0;
         public Form aform;
         public SqlConnection connection;
+        public int selid = -1;
 
         public FormMain(SqlConnection connection, Form aform, int role)
         {
@@ -77,11 +78,17 @@ namespace UPOReu
             }
         }
 
+
         private void buttonPeople_Click(object sender, EventArgs e)
         {
             if (role > 3)
             {
-                FormPeople formPeople = new FormPeople(connection);
+                FormPeople formPeople = new FormPeople(connection, 0);
+                //formPeople.dataGridViewPeople.CellDoubleClick += (senderObj, eargs) =>
+                //{
+                //    this.selid = formPeople.select;
+                //    this.Text = selid.ToString();
+                //};
                 formPeople.Show();
             }
         }

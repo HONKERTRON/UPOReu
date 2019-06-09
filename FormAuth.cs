@@ -8,22 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace UPOReu
 {
     public partial class FormAuth : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-5V1BK5F\MSSQLSERVERH;Initial Catalog=UPOReu;Integrated Security=True");
+        SqlConnection connection;
         DataSet dataSet = new DataSet();
 
         public FormAuth()
         {
             InitializeComponent();
+            using (FileStream fstream = File.OpenRead(@".\database"))
+            {
+                byte[] array = new byte[fstream.Length];
+                fstream.Read(array, 0, array.Length);
+                string textFromFile = System.Text.Encoding.Default.GetString(array);
+                connection = new SqlConnection(@"Data Source=" + textFromFile + ";Initial Catalog=UPOReu;Integrated Security=True");
+            }
         }
 
         private void FormAuth_Load(object sender, EventArgs e)
         {
-
+            //eO3VRUuP
         }
 
         private void buttonAuth_Click(object sender, EventArgs e)

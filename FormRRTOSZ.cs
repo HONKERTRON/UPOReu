@@ -45,6 +45,8 @@ namespace UPOReu
             InitializeComponent();
             this.connection = connection;
             RefreshWindow(id, -1);
+            dataGridViewRRTOSZ.Columns[0].ReadOnly = true;
+            dataGridViewDetails.Columns[0].ReadOnly = true;
         }
 
         private void dataGridViewRRTOSZ_CellContentClick(object sender, DataGridViewCellEventArgs e)

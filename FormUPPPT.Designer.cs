@@ -40,6 +40,7 @@
             this.dataGridViewUPPPT.Name = "dataGridViewUPPPT";
             this.dataGridViewUPPPT.Size = new System.Drawing.Size(284, 261);
             this.dataGridViewUPPPT.TabIndex = 0;
+            this.dataGridViewUPPPT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUPPPT_CellContentClick);
             // 
             // FormUPPPT
             // 
