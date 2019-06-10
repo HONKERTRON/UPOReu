@@ -57,8 +57,14 @@ namespace UPOReu
                     Hide();
                     FormMain formMain = new FormMain(connection, this, Convert.ToInt32(list[0])); ///TODO Add Roles
                     formMain.Show();
+                  
                 }
             } 
+        }
+
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
