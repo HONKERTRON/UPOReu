@@ -29,6 +29,7 @@ namespace UPOReu
             adapterJournal.Fill(dataSetJournal, "RRTOSZ");
             dataGridViewRRTOSZ.DataSource = dataSetJournal.Tables["RRTOSZ"];
             connection.Close();
+            dataGridViewRRTOSZ.Columns[0].ReadOnly = true;
             if (secondary_id >= 0)
             {
                 dataSetJTT.Clear();
@@ -37,6 +38,7 @@ namespace UPOReu
                 adapterJTT.Fill(dataSetJTT, "DETAILS");
                 dataGridViewDetails.DataSource = dataSetJTT.Tables["DETAILS"];
                 connection.Close();
+                dataGridViewDetails.Columns[0].ReadOnly = true;
             }
         }
 
@@ -45,8 +47,6 @@ namespace UPOReu
             InitializeComponent();
             this.connection = connection;
             RefreshWindow(id, -1);
-            dataGridViewRRTOSZ.Columns[0].ReadOnly = true;
-            dataGridViewDetails.Columns[0].ReadOnly = true;
         }
 
         private void dataGridViewRRTOSZ_CellContentClick(object sender, DataGridViewCellEventArgs e)

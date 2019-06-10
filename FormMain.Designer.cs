@@ -35,6 +35,7 @@
             this.buttonJUO = new System.Windows.Forms.Button();
             this.buttonPPS = new System.Windows.Forms.Button();
             this.buttonJUP = new System.Windows.Forms.Button();
+            this.buttonCheckEx = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonPeople
@@ -107,11 +108,22 @@
             this.buttonJUP.UseVisualStyleBackColor = true;
             this.buttonJUP.Click += new System.EventHandler(this.buttonJUP_Click);
             // 
+            // buttonCheckEx
+            // 
+            this.buttonCheckEx.Location = new System.Drawing.Point(12, 222);
+            this.buttonCheckEx.Name = "buttonCheckEx";
+            this.buttonCheckEx.Size = new System.Drawing.Size(260, 23);
+            this.buttonCheckEx.TabIndex = 7;
+            this.buttonCheckEx.Text = "Проверить просроченные огнетушители";
+            this.buttonCheckEx.UseVisualStyleBackColor = true;
+            this.buttonCheckEx.Click += new System.EventHandler(this.buttonCheckEx_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.buttonCheckEx);
             this.Controls.Add(this.buttonJUP);
             this.Controls.Add(this.buttonPPS);
             this.Controls.Add(this.buttonJUO);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Button buttonJUO;
         private System.Windows.Forms.Button buttonPPS;
         private System.Windows.Forms.Button buttonJUP;
+        private System.Windows.Forms.Button buttonCheckEx;
     }
 }

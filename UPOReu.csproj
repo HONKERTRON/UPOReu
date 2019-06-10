@@ -32,8 +32,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +56,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TemplateEngine.Docx, Version=1.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\TemplateEngine.Docx-beta.1.1.7\lib\net46\TemplateEngine.Docx.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormExtingusher.cs">
@@ -56,6 +73,12 @@
     </Compile>
     <Compile Include="FormPPSPPZ.Designer.cs">
       <DependentUpon>FormPPSPPZ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportEx.Designer.cs">
+      <DependentUpon>FormReportEx.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRRTOSZ.cs">
       <SubType>Form</SubType>
@@ -122,6 +145,9 @@
     <EmbeddedResource Include="FormPPSPPZ.resx">
       <DependentUpon>FormPPSPPZ.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportEx.resx">
+      <DependentUpon>FormReportEx.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRRTOSZ.resx">
       <DependentUpon>FormRRTOSZ.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +181,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

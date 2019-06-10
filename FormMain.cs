@@ -110,5 +110,11 @@ namespace UPOReu
             FormUPPPT formUPPPT = new FormUPPPT(connection, -1);
             formUPPPT.Show();
         }
+
+        private void buttonCheckEx_Click(object sender, EventArgs e)
+        {
+            FormReportEx formREx = new FormReportEx(connection);
+            formREx.Show();
+        }
     }
 }

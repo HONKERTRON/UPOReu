@@ -147,7 +147,7 @@ namespace UPOReu
 
             adapterObject.Update(dataSetObject.Tables["OBJECTS"]);
             dataSetObject.AcceptChanges();
-
+            RefreshWindow(-1);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

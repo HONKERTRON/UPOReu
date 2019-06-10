@@ -32,8 +32,12 @@ namespace UPOReu
 
         private void dataGridViewUO_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Int32 idObject = Convert.ToInt32(dataGridViewUO.Rows[dataGridViewUO.SelectedCells[0].RowIndex].Cells[0].Value);
-
+            connection.Open();
+            Int32 idObject = Convert.ToInt32(dataGridViewUO.Rows[dataGridViewUO.SelectedCells[0].RowIndex].Cells[1].Value);
+            String cmd = "SELECT [idEXTINGUSHER] FROM [EXTINGUSHER] WHERE [idUO] = " + idObject.ToString() + ";";
+            SqlCommand query_ = new SqlCommand(cmd, connection);
+            idObject = Convert.ToInt32(query_.ExecuteScalar());
+            connection.Close();
             FormExtingusher formEx = new FormExtingusher(connection, idObject);
             formEx.Show();
         }
