@@ -56,16 +56,15 @@ namespace UPOReu
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            TableContent table = new TableContent("Extingushers");
+            TableContent table = new TableContent("Table");
             for (int i = 0; i < dataGridViewResult.RowCount; i++)
             {
                 table.AddRow(///TODO CORRECT CELLS
-                        new FieldContent("idOJECT", dataGridViewResult.Rows[i].Cells[0].ToString()),
-                        new FieldContent("idEXTINGUSHER", dataGridViewResult.Rows[i].Cells[1].ToString()));
+                        new FieldContent("Text", dataGridViewResult.Rows[i].Cells[0].ToString()),
+                        new FieldContent("ItemText", dataGridViewResult.Rows[i].Cells[1].ToString()));
             }
                
             var valuesToFill = new Content(
-                new FieldContent("Report date", DateTime.Now.Date.ToString()),
                 table
                 );
 

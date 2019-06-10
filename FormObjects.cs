@@ -40,7 +40,8 @@ namespace UPOReu
                 dataGridViewState.DataSource = dataSetState.Tables["OBJECT_STATE"];
                 connection.Close();
                 dataGridViewState.Columns[0].ReadOnly = true;
-            }      
+            }
+            dataGridViewObjects.Columns[0].HeaderText = "Номер объекта";
         }
 
         public FormObjects(SqlConnection connection)
@@ -137,6 +138,18 @@ namespace UPOReu
                 formPeople.Close();
             };
             formPeople.Show();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            dataGridViewObjects.Rows.Remove(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex]);
+            adapterObject.UpdateCommand = builderObjects.GetUpdateCommand();
+            adapterObject.InsertCommand = builderObjects.GetInsertCommand();
+            adapterObject.DeleteCommand = builderObjects.GetDeleteCommand();
+
+            dataSetObject.AcceptChanges();
+            adapterObject.Update(dataSetObject.Tables["OBJECTS"]);
+            RefreshWindow(-1);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
