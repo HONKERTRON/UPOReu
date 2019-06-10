@@ -200,8 +200,10 @@ CREATE TABLE [DETAILS] (
 
 
 INSERT INTO [USERS]([name], [last_name], [username], [password], [role]) VALUES ('admin', 'admin', 'admin', HASHBYTES ('MD5', 'eO3VRUuP'), 10);
+INSERT INTO [USERS]([name], [last_name], [username], [password], [role]) VALUES ('beb', 'beb', 'beb', HASHBYTES ('MD5', 'beba'), 10);
 
-INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('name1', 'lastname1', 'username1', HASHBYTES ('MD5', 'password1'));
+
+INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('Григорий', 'lastname1', 'username1', HASHBYTES ('MD5', 'password1'));
 INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('name2', 'lastname2', 'username2', HASHBYTES ('MD5', 'password2'));
 INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('name3', 'lastname3', 'username3', HASHBYTES ('MD5', 'password3'));
 INSERT INTO [USERS]([name], [last_name], [username], [password]) VALUES ('name4', 'lastname4', 'username4', HASHBYTES ('MD5', 'password4'));
@@ -211,7 +213,36 @@ INSERT INTO [OBJECTS]([name_object], [adress]) VALUES ('name1', 'adress1');
 INSERT INTO [OBJECTS]([name_object], [adress]) VALUES ('name2', 'adress2');
 INSERT INTO [OBJECTS]([name_object], [adress]) VALUES ('name3', 'adress3');
 INSERT INTO [OBJECTS]([name_object], [adress]) VALUES ('name4', 'adress4');
+INSERT INTO [OBJECTS]([name_object], [adress]) VALUES ('Тестовые занчения', 'Тестики');
+
 
 INSERT INTO [OBJECT_STATE]([date], [description], [idOBJECT]) VALUES ('2019-06-05', 'decs1', 1);
 INSERT INTO [OBJECT_STATE]([date], [description], [idOBJECT]) VALUES ('2019-06-06', 'decs2', 2);
 INSERT INTO [OBJECT_STATE]([date], [description], [idOBJECT]) VALUES ('2019-06-07', 'decs3', 3);
+
+INSERT INTO [EXTINGUSHER] ([number], [date_start], [place], [mark], [factory_number], [date_created], [concentration], [type_ex])
+VALUES ('123', '10/10/10', 'RTR', 'RTR', '1124', '10/11/11', '1', '2');
+ 
+
+
+INSERT INTO [TYPE_EX] ([description]) VALUES ('какое-то описание'); 
+INSERT INTO [TYPE_EX] ([description]) VALUES ('бебское описание'); 
+INSERT INTO [TYPE_EX] ([description]) VALUES ('бибское описание'); 
+INSERT INTO [TYPE_EX] ([description]) VALUES ('описание описание');
+INSERT INTO [TYPE_EX] ([description]) VALUES ('пока на описаниях хватит');
+
+
+INSERT INTO [MANUFACTURER] ([name]) VALUES ('Бебский завод');
+INSERT INTO [MANUFACTURER] ([name]) VALUES ('Бибский завод');
+INSERT INTO [MANUFACTURER] ([name]) VALUES ('Завод имени Ильича');
+INSERT INTO [MANUFACTURER] ([name]) VALUES ('Одесский завод');
+INSERT INTO [MANUFACTURER] ([name]) VALUES ('Заводчянский завод');
+
+
+
+INSERT INTO [UO] ([date], [idUSERS], [apperience], [mass], [pressure], [state], [actions]) VALUES ('10/10/10', '1', 'ERT', '', '', 'QWERTY', 'QWERT');
+INSERT INTO [UO] ([date], [idUSERS],[apperience], [mass], [pressure], [state], [actions]) VALUES ('11/11/11', '2', 'ERT', '', '', 'QWERTY', 'QWERT');
+INSERT INTO [UO] ([date], [idUSERS],[apperience], [mass], [pressure], [state], [actions]) VALUES ('12/12/12', '3', 'ERT', '', '', 'QWERTY', 'QWERT');
+INSERT INTO [UO] ([date], [idUSERS],[apperience], [mass], [pressure], [state], [actions]) VALUES ('7/7/7', '4', 'ERT', '', '', 'QWERTY', 'QWERT');
+INSERT INTO [UO] ([date], [idUSERS],[apperience], [mass], [pressure], [state], [actions]) VALUES ('8/8/8', '5', 'ERT', '', '', 'QWERTY', 'QWERT');
+

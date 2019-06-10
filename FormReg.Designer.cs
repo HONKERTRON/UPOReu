@@ -40,44 +40,50 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(12, 12);
+            this.textBoxName.Location = new System.Drawing.Point(18, 18);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(134, 20);
+            this.textBoxName.Size = new System.Drawing.Size(199, 26);
             this.textBoxName.TabIndex = 0;
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(12, 38);
+            this.textBoxLastName.Location = new System.Drawing.Point(18, 58);
+            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(134, 20);
+            this.textBoxLastName.Size = new System.Drawing.Size(199, 26);
             this.textBoxLastName.TabIndex = 1;
             // 
             // textBoxPatronym
             // 
-            this.textBoxPatronym.Location = new System.Drawing.Point(12, 64);
+            this.textBoxPatronym.Location = new System.Drawing.Point(18, 98);
+            this.textBoxPatronym.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxPatronym.Name = "textBoxPatronym";
-            this.textBoxPatronym.Size = new System.Drawing.Size(134, 20);
+            this.textBoxPatronym.Size = new System.Drawing.Size(199, 26);
             this.textBoxPatronym.TabIndex = 2;
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(12, 90);
+            this.textBoxUsername.Location = new System.Drawing.Point(18, 138);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(134, 20);
+            this.textBoxUsername.Size = new System.Drawing.Size(199, 26);
             this.textBoxUsername.TabIndex = 3;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(12, 116);
+            this.textBoxPassword.Location = new System.Drawing.Point(18, 178);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(134, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(199, 26);
             this.textBoxPassword.TabIndex = 4;
             // 
             // buttonReg
             // 
-            this.buttonReg.Location = new System.Drawing.Point(12, 142);
+            this.buttonReg.Location = new System.Drawing.Point(18, 218);
+            this.buttonReg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonReg.Name = "buttonReg";
-            this.buttonReg.Size = new System.Drawing.Size(134, 23);
+            this.buttonReg.Size = new System.Drawing.Size(201, 35);
             this.buttonReg.TabIndex = 5;
             this.buttonReg.Text = "Зарегестрироваться";
             this.buttonReg.UseVisualStyleBackColor = true;
@@ -90,25 +96,27 @@
             "Техник",
             "Инженер",
             "Начальник пожарной безопасности"});
-            this.comboBoxRole.Location = new System.Drawing.Point(12, 171);
+            this.comboBoxRole.Location = new System.Drawing.Point(18, 263);
+            this.comboBoxRole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxRole.Name = "comboBoxRole";
-            this.comboBoxRole.Size = new System.Drawing.Size(134, 21);
+            this.comboBoxRole.Size = new System.Drawing.Size(199, 28);
             this.comboBoxRole.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 195);
+            this.label1.Location = new System.Drawing.Point(13, 407);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "label1";
             // 
             // FormReg
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(215, 212);
+            this.ClientSize = new System.Drawing.Size(842, 436);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.buttonReg);
@@ -117,6 +125,7 @@
             this.Controls.Add(this.textBoxPatronym);
             this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.textBoxName);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormReg";
             this.Text = "Регистрация";
             this.ResumeLayout(false);

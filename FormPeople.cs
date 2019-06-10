@@ -67,5 +67,11 @@ namespace UPOReu
                 formSP.Show();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormReg reg = new FormReg(connection);
+            reg.Show();
+        }
     }
 }
