@@ -142,13 +142,12 @@ namespace UPOReu
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            dataGridViewObjects.Rows.Remove(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex]);
-            adapterObject.UpdateCommand = builderObjects.GetUpdateCommand();
-            adapterObject.InsertCommand = builderObjects.GetInsertCommand();
-            adapterObject.DeleteCommand = builderObjects.GetDeleteCommand();
-
-            dataSetObject.AcceptChanges();
-            adapterObject.Update(dataSetObject.Tables["OBJECTS"]);
+            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+            connection.Open();
+            String cmd = "DELETE FROM [OBJECTS] WHERE [idOBJECT] = " + idObject.ToString()+ ";";
+            SqlCommand query_ = new SqlCommand(cmd, connection);
+            int res = Convert.ToInt32(query_.ExecuteNonQuery());
+            connection.Close();
             RefreshWindow(-1);
         }
 
