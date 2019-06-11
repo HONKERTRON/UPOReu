@@ -116,5 +116,11 @@ namespace UPOReu
             FormReportEx formREx = new FormReportEx(connection);
             formREx.Show();
         }
+
+        private void buttonFeedback_Click(object sender, EventArgs e)
+        {
+            // ССЫЛКУ СЮДА
+            System.Diagnostics.Process.Start("http://uporeu@v3.ru");
+        }
     }
 }
