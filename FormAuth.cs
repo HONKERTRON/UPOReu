@@ -59,6 +59,10 @@ namespace UPOReu
                     formMain.Show();
                   
                 }
+                else
+                {
+                    MessageBox.Show("Введен неверный пароль", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                }
             } 
         }
 

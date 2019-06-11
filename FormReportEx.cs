@@ -24,7 +24,7 @@ namespace UPOReu
             InitializeComponent();
             this.connection = connection;
             connection.Open();
-            String cmd = "SELECT *, DATEDIFF(day, [EXTINGUSHER].[date_start], [EXTINGUSHER].[date_created]) FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] ORDER BY DATEDIFF(day, [EXTINGUSHER].[date_created], [EXTINGUSHER].[date_start]) ASC;";
+            String cmd = "SELECT *, -DATEDIFF(day, [EXTINGUSHER].[date_start], [EXTINGUSHER].[date_created]) FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] ORDER BY DATEDIFF(day, [EXTINGUSHER].[date_created], [EXTINGUSHER].[date_start]) DESC;";
             adapterSP = new SqlDataAdapter(cmd, connection);
             adapterSP.Fill(dataSetSP, "EXTINGUSHER");
             dataGridViewReport.DataSource = dataSetSP.Tables["EXTINGUSHER"];
@@ -71,7 +71,9 @@ namespace UPOReu
             File.Delete("OutputDocument.docx");
             File.Copy("InputTemplate.docx", "OutputDocument.docx");
 
-            var valuesToFill = new Content(table);
+            var valuesToFill = new Content(
+                new FieldContent("Report date", DateTime.Now.ToString()),
+                table);
 
             using (var outputDocument = new TemplateProcessor("OutputDocument.docx")
                 .SetRemoveContentControls(true))
