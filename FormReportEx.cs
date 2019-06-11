@@ -24,7 +24,7 @@ namespace UPOReu
             InitializeComponent();
             this.connection = connection;
             connection.Open();
-            String cmd = "SELECT * FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] ORDER BY DATEDIFF(day, [EXTINGUSHER].[date_start], [EXTINGUSHER].[date_created]) ASC;";
+            String cmd = "SELECT *, DATEDIFF(day, [EXTINGUSHER].[date_start], [EXTINGUSHER].[date_created]) FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] ORDER BY DATEDIFF(day, [EXTINGUSHER].[date_created], [EXTINGUSHER].[date_start]) ASC;";
             adapterSP = new SqlDataAdapter(cmd, connection);
             adapterSP.Fill(dataSetSP, "EXTINGUSHER");
             dataGridViewReport.DataSource = dataSetSP.Tables["EXTINGUSHER"];
@@ -57,12 +57,15 @@ namespace UPOReu
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            TableContent table = new TableContent("Team Members Table");
+            TableContent table = new TableContent("Extingushers");
             for (int i = 0; i < dataGridViewResult.RowCount-1; i++)
             {
                 table.AddRow(///TODO CORRECT CELLS
-                        new FieldContent("Name", dataGridViewResult.Rows[i].Cells[0].Value.ToString()),
-                        new FieldContent("Role", dataGridViewResult.Rows[i].Cells[1].Value.ToString()));
+                        new FieldContent("Number", dataGridViewResult.Rows[i].Cells[3].Value.ToString()),
+                        new FieldContent("Mark", dataGridViewResult.Rows[i].Cells[6].Value.ToString()),
+                        new FieldContent("Concentration", dataGridViewResult.Rows[i].Cells[9].Value.ToString()),
+                        new FieldContent("Expired", dataGridViewResult.Rows[i].Cells[dataGridViewResult.ColumnCount-1].Value.ToString())
+                        );
             }
 
             File.Delete("OutputDocument.docx");
