@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,19 +57,20 @@ namespace UPOReu
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            TableContent table = new TableContent("Table");
-            for (int i = 0; i < dataGridViewResult.RowCount; i++)
+            TableContent table = new TableContent("Team Members Table");
+            for (int i = 0; i < dataGridViewResult.RowCount-1; i++)
             {
                 table.AddRow(///TODO CORRECT CELLS
-                        new FieldContent("Text", dataGridViewResult.Rows[i].Cells[0].ToString()),
-                        new FieldContent("ItemText", dataGridViewResult.Rows[i].Cells[1].ToString()));
+                        new FieldContent("Name", dataGridViewResult.Rows[i].Cells[0].Value.ToString()),
+                        new FieldContent("Role", dataGridViewResult.Rows[i].Cells[1].Value.ToString()));
             }
-               
-            var valuesToFill = new Content(
-                table
-                );
 
-            using (var outputDocument = new TemplateProcessor("report.docx")
+            File.Delete("OutputDocument.docx");
+            File.Copy("InputTemplate.docx", "OutputDocument.docx");
+
+            var valuesToFill = new Content(table);
+
+            using (var outputDocument = new TemplateProcessor("OutputDocument.docx")
                 .SetRemoveContentControls(true))
             {
                 outputDocument.FillContent(valuesToFill);
