@@ -40,7 +40,8 @@ namespace UPOReu
                 dataGridViewState.DataSource = dataSetState.Tables["OBJECT_STATE"];
                 connection.Close();
                 dataGridViewState.Columns[0].ReadOnly = true;
-            }      
+            }
+            dataGridViewObjects.Columns[0].HeaderText = "Номер объекта";
         }
 
         public FormObjects(SqlConnection connection)
@@ -137,6 +138,17 @@ namespace UPOReu
                 formPeople.Close();
             };
             formPeople.Show();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+            connection.Open();
+            String cmd = "DELETE FROM [OBJECTS] WHERE [idOBJECT] = " + idObject.ToString()+ ";";
+            SqlCommand query_ = new SqlCommand(cmd, connection);
+            int res = Convert.ToInt32(query_.ExecuteNonQuery());
+            connection.Close();
+            RefreshWindow(-1);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
