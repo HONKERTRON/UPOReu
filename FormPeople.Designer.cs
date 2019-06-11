@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonDeletePeople = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBoxLastname = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxPhone = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.dataGridViewPeople = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -49,21 +52,50 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackgroundImage = global::UPOReu.Properties.Resources.Фон_v11;
+            this.splitContainer1.Panel1.Controls.Add(this.buttonDeletePeople);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.textBoxLastname);
             this.splitContainer1.Panel1.Controls.Add(this.textBoxName);
+            this.splitContainer1.Panel1.Controls.Add(this.textBoxPhone);
+            this.splitContainer1.Panel1.Controls.Add(this.textBoxEmail);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewPeople);
-            this.splitContainer1.Size = new System.Drawing.Size(822, 485);
-            this.splitContainer1.SplitterDistance = 196;
+            this.splitContainer1.Size = new System.Drawing.Size(1613, 485);
+            this.splitContainer1.SplitterDistance = 383;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
+            // buttonDeletePeople
+            // 
+            this.buttonDeletePeople.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.buttonDeletePeople.Font = new System.Drawing.Font("Arial Unicode MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDeletePeople.Location = new System.Drawing.Point(12, 353);
+            this.buttonDeletePeople.Name = "buttonDeletePeople";
+            this.buttonDeletePeople.Size = new System.Drawing.Size(253, 108);
+            this.buttonDeletePeople.TabIndex = 3;
+            this.buttonDeletePeople.Text = "Удалить учетную запись";
+            this.buttonDeletePeople.UseVisualStyleBackColor = false;
+            this.buttonDeletePeople.UseWaitCursor = true;
+            this.buttonDeletePeople.Click += new System.EventHandler(this.buttonDeletePeople_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.button1.Font = new System.Drawing.Font("Arial Unicode MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(12, 234);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(253, 113);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Создать новую учетную запись";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // textBoxLastname
             // 
-            this.textBoxLastname.Location = new System.Drawing.Point(18, 58);
+            this.textBoxLastname.Location = new System.Drawing.Point(29, 88);
             this.textBoxLastname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxLastname.Name = "textBoxLastname";
             this.textBoxLastname.Size = new System.Drawing.Size(172, 26);
@@ -72,12 +104,30 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(18, 18);
+            this.textBoxName.Location = new System.Drawing.Point(29, 48);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(172, 26);
             this.textBoxName.TabIndex = 0;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
+            // 
+            // textBoxPhone
+            // 
+            this.textBoxPhone.Location = new System.Drawing.Point(29, 48);
+            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.Size = new System.Drawing.Size(172, 26);
+            this.textBoxPhone.TabIndex = 0;
+            this.textBoxPhone.TextChanged += new System.EventHandler(this.textBoxPhone_textChanged);
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Location = new System.Drawing.Point(29, 48);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(172, 26);
+            this.textBoxEmail.TabIndex = 0;
+            this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxPhone_textChanged);
             // 
             // dataGridViewPeople
             // 
@@ -87,29 +137,20 @@
             this.dataGridViewPeople.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewPeople.MultiSelect = false;
             this.dataGridViewPeople.Name = "dataGridViewPeople";
-            this.dataGridViewPeople.Size = new System.Drawing.Size(620, 485);
+            this.dataGridViewPeople.Size = new System.Drawing.Size(1224, 485);
             this.dataGridViewPeople.TabIndex = 0;
             this.dataGridViewPeople.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPeople_CellContentDoubleClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(29, 146);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 26);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Создать новую учетную запись";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 485);
+            this.BackgroundImage = global::UPOReu.Properties.Resources.Фон_v11;
+            this.ClientSize = new System.Drawing.Size(1613, 485);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPeople";
-            this.Text = "FormPeople";
+            this.Text = "Сотрудники";
             this.Load += new System.EventHandler(this.FormPeople_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -127,6 +168,9 @@
         public System.Windows.Forms.DataGridView dataGridViewPeople;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxLastname;
+        private System.Windows.Forms.TextBox textBoxPhone;
+        private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonDeletePeople;
     }
 }

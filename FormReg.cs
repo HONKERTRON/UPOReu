@@ -32,7 +32,7 @@ namespace UPOReu
                 list.Add(reader[0].ToString());
             }
             connection.Close();
-            if ((textBoxName.TextLength == 0) || (textBoxLastName.TextLength == 0) || (textBoxUsername.TextLength == 0) || (textBoxPassword.TextLength == 0))
+            if ((textBoxName.TextLength == 0) || (textBoxLastName.TextLength == 0) || (textBoxPhone.TextLength == 0) || (textBoxEmail.TextLength == 0) || (textBoxUsername.TextLength == 0) || (textBoxPassword.TextLength == 0))
             {
                 label1.Text = "Одно из обязательных полей не заполнено.";
             }
@@ -45,12 +45,27 @@ namespace UPOReu
                 else
                 {
                     connection.Open();
-                    String cmd = "INSERT INTO [USERS]([name], [last_name], [patronym], [username], [password]) VALUES ('" + textBoxName.Text + "', '" + textBoxLastName.Text + "', '" + textBoxPatronym.Text + "', '" + textBoxUsername.Text + "', HASHBYTES ('MD5', '" + textBoxPassword.Text + "'));";
+                    String cmd = "INSERT INTO [USERS]([name], [last_name], [patronym], [phone_number], [email], [username], [password]) VALUES ('" + textBoxName.Text + "', '" + textBoxLastName.Text + "', '" + textBoxPatronym.Text + "', '" + textBoxPhone.Text + "', '" + textBoxEmail.Text + "', '" + textBoxUsername.Text + "', HASHBYTES ('MD5', '" + textBoxPassword.Text + "'));";
                     SqlCommand query_ = new SqlCommand(cmd, connection);
                     label1.Text = "Изменено " + Convert.ToString(query_.ExecuteNonQuery()) + " записей.";
                     connection.Close();
                 }
             }
+        }
+
+        private void FormReg_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
