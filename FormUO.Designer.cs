@@ -37,20 +37,22 @@
             this.dataGridViewUO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUO.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewUO.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewUO.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewUO.Name = "dataGridViewUO";
-            this.dataGridViewUO.Size = new System.Drawing.Size(526, 325);
+            this.dataGridViewUO.Size = new System.Drawing.Size(1386, 500);
             this.dataGridViewUO.TabIndex = 0;
             this.dataGridViewUO.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUO_CellContentClick);
             this.dataGridViewUO.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUO_CellDoubleClick);
             // 
             // FormUO
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 325);
+            this.ClientSize = new System.Drawing.Size(1386, 500);
             this.Controls.Add(this.dataGridViewUO);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormUO";
-            this.Text = "FormUO";
+            this.Text = "Учет огнетушителей";
             this.Load += new System.EventHandler(this.FormUO_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUO)).EndInit();
             this.ResumeLayout(false);

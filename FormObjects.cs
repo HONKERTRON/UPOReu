@@ -30,6 +30,7 @@ namespace UPOReu
             dataGridViewObjects.DataSource = dataSetObject.Tables["OBJECTS"];
             connection.Close();
             dataGridViewObjects.Columns[0].ReadOnly = true;
+            
             if (secondary_id >= 0)
             {
                 dataSetState.Clear();
@@ -40,8 +41,19 @@ namespace UPOReu
                 dataGridViewState.DataSource = dataSetState.Tables["OBJECT_STATE"];
                 connection.Close();
                 dataGridViewState.Columns[0].ReadOnly = true;
+                dataGridViewState.Columns[0].HeaderText = "Ключ состояния";
+                dataGridViewState.Columns[1].HeaderText = "Дата состояния";
+                dataGridViewState.Columns[2].HeaderText = "Описание состояния";
+
+                this.dataGridViewState.DefaultCellStyle.Font = new Font("Arial Unicode MS", 10);
+                this.dataGridViewState.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Unicode MS", 10);
             }
+            dataGridViewObjects.Columns[0].HeaderText = "Номер объекта"; 
             dataGridViewObjects.Columns[0].HeaderText = "Номер объекта";
+            dataGridViewObjects.Columns[1].HeaderText = "Имя объекта";
+            dataGridViewObjects.Columns[2].HeaderText = "Адрес объекта";
+            this.dataGridViewObjects.DefaultCellStyle.Font = new Font("Arial Unicode MS", 10);
+            this.dataGridViewObjects.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Unicode MS", 10);
         }
 
         public FormObjects(SqlConnection connection)
@@ -145,6 +157,7 @@ namespace UPOReu
             Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
             connection.Open();
             String cmd = "DELETE FROM [OBJECTS] WHERE [idOBJECT] = " + idObject.ToString()+ ";";
+
             SqlCommand query_ = new SqlCommand(cmd, connection);
             int res = Convert.ToInt32(query_.ExecuteNonQuery());
             connection.Close();
