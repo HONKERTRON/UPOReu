@@ -42,27 +42,36 @@ namespace UPOReu
             }
             else
             {
-                connection.Open();
-                String cmd = "SELECT [role] FROM [USERS] WHERE [username] = '" + textBoxUsername.Text + "' AND HASHBYTES ('MD5', '" + textBoxPassword.Text + "') = [password];";
-                SqlCommand query = new SqlCommand(cmd, connection);
-                SqlDataReader reader = query.ExecuteReader();
-                List<String> list = new List<String>();
-                while (reader.Read())
+                try
                 {
-                    list.Add(reader[0].ToString());
+                    connection.Open();
+                    String cmd = "SELECT [role] FROM [USERS] WHERE [username] = '" + textBoxUsername.Text + "' AND HASHBYTES ('MD5', '" + textBoxPassword.Text + "') = [password];";
+                    SqlCommand query = new SqlCommand(cmd, connection);
+                    SqlDataReader reader = query.ExecuteReader();
+                    List<String> list = new List<String>();
+                    while (reader.Read())
+                    {
+                        list.Add(reader[0].ToString());
+                    }
+                    connection.Close();
+                    if (list.Count > 0)
+                    {
+                        Hide();
+                        FormMain formMain = new FormMain(connection, this, Convert.ToInt32(list[0])); ///TODO Add Roles
+                        formMain.Show();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Введен неверный пароль", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                    }
                 }
-                connection.Close();
-                if (list.Count > 0)
+                catch
                 {
-                    Hide();
-                    FormMain formMain = new FormMain(connection, this, Convert.ToInt32(list[0])); ///TODO Add Roles
-                    formMain.Show();
-                  
+                    MessageBox.Show("Нет соединения с базой данных", "Ошибка подключения к базе данных", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                    Close();
                 }
-                else
-                {
-                    MessageBox.Show("Введен неверный пароль", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                }
+                
             } 
         }
 
