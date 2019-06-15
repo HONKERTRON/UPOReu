@@ -59,10 +59,15 @@ namespace UPOReu
                     connection.Close();
                     if (list.Count > 0)
                     {
+                        int role = Convert.ToInt32(list[0]);
                         Hide();
-                        FormMain formMain = new FormMain(connection, this, Convert.ToInt32(list[0])); ///TODO Add Roles
-                        formMain.Show();
-
+                        switch(role)
+                        {
+                            case 10:
+                                FormMain formMain = new FormMain(connection, this, role); ///TODO Add Roles
+                                formMain.Show();
+                                break;
+                        }
                     }
                     else
                     {
