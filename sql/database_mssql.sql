@@ -220,8 +220,13 @@ INSERT INTO [OBJECT_STATE]([date], [description], [idOBJECT]) VALUES ('2019-06-0
 INSERT INTO [OBJECT_STATE]([date], [description], [idOBJECT]) VALUES ('2019-06-06', 'decs2', 2);
 INSERT INTO [OBJECT_STATE]([date], [description], [idOBJECT]) VALUES ('2019-06-07', 'decs3', 3);
 
-INSERT INTO [EXTINGUSHER] ([number], [date_start], [place], [mark], [factory_number], [date_created], [concentration], [type_ex])
-VALUES ('123', '10/10/10', 'RTR', 'RTR', '1124', '10/11/11', '1', '2');
+INSERT INTO [EXTINGUSHER] ([idUO], [idMANUFACTURER], [number], [date_start], [place], [mark], 
+[factory_number], [date_created], [concentration], [type_ex])
+VALUES ('1', '1', '123', '10/10/10', 'RTR', 'RTR', '1124', '10/11/11', '1', '2');
+
+INSERT INTO [EXTINGUSHER] ([idUO], [idMANUFACTURER], [number], [date_start], [place], [mark], 
+[factory_number], [date_created], [concentration], [type_ex])
+VALUES ('1', '1', '789567', '10/10/10', '4 этаж', 'Богатырь', '346798', '10/11/11', '5', '1');
  
 
 
@@ -246,3 +251,30 @@ INSERT INTO [UO] ([date], [idUSERS],[apperience], [mass], [pressure], [state], [
 INSERT INTO [UO] ([date], [idUSERS],[apperience], [mass], [pressure], [state], [actions]) VALUES ('7/7/7', '4', 'ERT', '', '', 'QWERTY', 'QWERT');
 INSERT INTO [UO] ([date], [idUSERS],[apperience], [mass], [pressure], [state], [actions]) VALUES ('8/8/8', '5', 'ERT', '', '', 'QWERTY', 'QWERT');
 
+INSERT INTO [UPPPT] ([idOBJECT], [date], [person], [topic], [place], [grade]) 
+VALUES ('1', '10/10/10', '1', '123', '123', '31321');
+
+INSERT INTO [RRTOSZ] ([idOBJECT], [date], [type_system], [type_work], [description], [result_state], [result_work], [worker])
+VALUES ('1', '10/10/10', 'QWE', 'QWE', 'QER', 'QE', 'QE', '2')
+
+
+
+  INSERT INTO [USERS] 
+  ([name], [last_name], [patronym], [phone_number], [email], [role], [username], [password])
+  VALUES ('Владимир', 'Маяковский', 'Владимирович', '+7(903)976-76-73', 'futur@gmail.com', '1', 'maykovsky', 'lilia123')
+  INSERT INTO [USERS]
+  ([name], [last_name], [patronym], [phone_number], [email], [role], [username], [password])
+  VALUES ('Лилия', 'Юрьевна', 'Брик', '+7(903)975-75-80', 'brick@gmail.com', '2', 'lilibrick', 'kagan91')
+  INSERT INTO [USERS]
+  ([name], [last_name], [patronym], [phone_number], [email], [role], [username], [password])
+  VALUES ('Осип', 'Мандельштам', 'Эмильевич', '+7(968)853-82-78', 'osipmandel@gmail.com', '1', 'mandelshtam', 'varshava27')
+  INSERT INTO [USERS]
+  ([name], [last_name], [patronym], [phone_number], [email], [role], [username], [password])
+  VALUES ('Иосиф', 'Бродский', 'Александрович', '+7(955)978-00-46', 'brodskyiosif@gmail.com', '1', 'brodsky', 'leningrad6')
+  INSERT INTO [USERS]
+  ([name], [last_name], [patronym], [phone_number], [email], [role], [username], [password])
+  VALUES ('Александр', 'Твардовский', 'Трифонович', '+7(934)967-21-32', 'tvardalek@gmail.com', '1', 'tvardovsky', 'zagorie123')
+  INSERT INTO [USERS]
+  ([name], [last_name], [patronym], [phone_number], [email], [role], [username], [password])
+  VALUES ('Борис', 'Пастернак', 'Леонидович', '+7(786)976-35-46', 'pasternacbor@gmail.com', '1', 'pasternac', 'moskva123')
+ 

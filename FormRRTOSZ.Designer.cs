@@ -43,6 +43,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -52,8 +53,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewDetails);
-            this.splitContainer1.Size = new System.Drawing.Size(553, 267);
-            this.splitContainer1.SplitterDistance = 295;
+            this.splitContainer1.Size = new System.Drawing.Size(830, 411);
+            this.splitContainer1.SplitterDistance = 442;
+            this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
             // dataGridViewRRTOSZ
@@ -61,8 +63,9 @@
             this.dataGridViewRRTOSZ.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRRTOSZ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRRTOSZ.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRRTOSZ.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewRRTOSZ.Name = "dataGridViewRRTOSZ";
-            this.dataGridViewRRTOSZ.Size = new System.Drawing.Size(295, 267);
+            this.dataGridViewRRTOSZ.Size = new System.Drawing.Size(442, 411);
             this.dataGridViewRRTOSZ.TabIndex = 0;
             this.dataGridViewRRTOSZ.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRRTOSZ_CellContentClick);
             // 
@@ -71,17 +74,20 @@
             this.dataGridViewDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDetails.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewDetails.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewDetails.Name = "dataGridViewDetails";
-            this.dataGridViewDetails.Size = new System.Drawing.Size(254, 267);
+            this.dataGridViewDetails.Size = new System.Drawing.Size(382, 411);
             this.dataGridViewDetails.TabIndex = 0;
             // 
-            // FormJRRTOSZ
+            // FormRRTOSZ
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 267);
+            this.ClientSize = new System.Drawing.Size(830, 411);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "FormJRRTOSZ";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "FormRRTOSZ";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormJournal";
             this.Load += new System.EventHandler(this.FormJournal_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

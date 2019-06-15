@@ -120,7 +120,13 @@ namespace UPOReu
         private void buttonFeedback_Click(object sender, EventArgs e)
         {
             // ССЫЛКУ СЮДА
-            System.Diagnostics.Process.Start("http://uporeu@v3.ru");
+            System.Diagnostics.Process.Start("http://xvideos.com");
+        }
+
+        private void buttonEX_Click(object sender, EventArgs e)
+        {
+            FormExtingusher formEx = new FormExtingusher(connection, -1);
+            formEx.Show();
         }
     }
 }

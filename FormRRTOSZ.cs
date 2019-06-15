@@ -13,21 +13,34 @@ namespace UPOReu
 {
     public partial class FormRRTOSZ : Form
     {
-        public SqlConnection connection;
-        public SqlDataAdapter adapterJournal, adapterJTT, adapterJD;
-        public DataSet dataSetJournal = new DataSet();
+        ////public SqlConnection connection;
+        public SqlDataAdapter adapterJTT, adapterJD;
+        ////public DataSet dataSetJournal = new DataSet();
         public DataSet dataSetJTT = new DataSet();
-        public DataSet dataSetJD = new DataSet();
+        ////public DataSet dataSetJD = new DataSet();
         public int id = -1;
+        public SqlConnection connection;
+        public SqlDataAdapter adapterRRTOSZ;
+        public DataSet dataSetRRTOSZ = new DataSet();
+        public SqlCommandBuilder builderRRTOSZ;
 
         public void RefreshWindow(int id, int secondary_id)
         {
-            dataSetJournal.Clear();
+            dataSetRRTOSZ.Clear();
+            connection.Open();
+            adapterRRTOSZ = new SqlDataAdapter("SELECT [idRRTOSZ], [idOBJECT], [date], [type_system], [type_work], [description], [result_state], [result_work], [worker] FROM [RRTOSZ] ORDER BY [idRRTOSZ] ASC", connection);
+            builderRRTOSZ = new SqlCommandBuilder(adapterRRTOSZ);
+            adapterRRTOSZ.Fill(dataSetRRTOSZ, "RRTOSZ");
+
+            dataGridViewRRTOSZ.DataSource = dataSetRRTOSZ.Tables["RRTOSZ"];
+            connection.Close();
+            dataGridViewRRTOSZ.Columns[0].ReadOnly = true;
+            dataSetRRTOSZ.Clear();
             this.id = id;
             connection.Open();
-            adapterJournal = new SqlDataAdapter("SELECT * FROM [RRTOSZ] WHERE [RRTOSZ].[idOBJECT] = " + id.ToString() + " ORDER BY [idOBJECT] ASC", connection);
-            adapterJournal.Fill(dataSetJournal, "RRTOSZ");
-            dataGridViewRRTOSZ.DataSource = dataSetJournal.Tables["RRTOSZ"];
+            adapterRRTOSZ = new SqlDataAdapter("SELECT * FROM [RRTOSZ] WHERE [RRTOSZ].[idOBJECT] = " + id.ToString() + " ORDER BY [idOBJECT] ASC", connection);
+            adapterRRTOSZ.Fill(dataSetRRTOSZ, "RRTOSZ");
+            dataGridViewRRTOSZ.DataSource = dataSetRRTOSZ.Tables["RRTOSZ"];
             connection.Close();
             dataGridViewRRTOSZ.Columns[0].ReadOnly = true;
             if (secondary_id >= 0)
@@ -46,7 +59,23 @@ namespace UPOReu
         {
             InitializeComponent();
             this.connection = connection;
-            RefreshWindow(id, -1);
+            builderRRTOSZ = new SqlCommandBuilder(adapterRRTOSZ);
+            RefreshWindow(-1, 1);
+
+            //столбцы таблицы
+            //dataGridViewUO.Columns[0].HeaderText = "Ключ объекта";
+            //dataGridViewUO.Columns[1].HeaderText = "Ключ огнетушиетля";
+            //dataGridViewUO.Columns[2].HeaderText = "Дата проверки";
+            //dataGridViewUO.Columns[3].HeaderText = "Ключ пользователя";
+            //dataGridViewUO.Columns[4].HeaderText = "Apperience";
+            //dataGridViewUO.Columns[5].HeaderText = "Масса";
+            //dataGridViewUO.Columns[6].HeaderText = "Pressure";
+            //dataGridViewUO.Columns[7].HeaderText = "State";
+            //dataGridViewUO.Columns[8].HeaderText = "Actions";
+
+            //стиль столбцов
+            this.dataGridViewRRTOSZ.DefaultCellStyle.Font = new Font("Arial Unicode MS", 10);
+            this.dataGridViewRRTOSZ.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Unicode MS", 10);
         }
 
         private void dataGridViewRRTOSZ_CellContentClick(object sender, DataGridViewCellEventArgs e)

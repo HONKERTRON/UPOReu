@@ -164,6 +164,12 @@ namespace UPOReu
             RefreshWindow(-1);
         }
 
+        private void buttonDobObject_Click(object sender, EventArgs e)
+        {
+            FormInsertObject fio = new FormInsertObject(connection);
+            fio.Show();
+        }
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
             adapterObject.UpdateCommand = builderObjects.GetUpdateCommand();

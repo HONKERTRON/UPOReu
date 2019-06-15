@@ -95,7 +95,7 @@
             // 
             // textBoxLastname
             // 
-            this.textBoxLastname.Location = new System.Drawing.Point(29, 88);
+            this.textBoxLastname.Location = new System.Drawing.Point(29, 100);
             this.textBoxLastname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxLastname.Name = "textBoxLastname";
             this.textBoxLastname.Size = new System.Drawing.Size(172, 26);
@@ -131,14 +131,21 @@
             // 
             // dataGridViewPeople
             // 
+            this.dataGridViewPeople.AllowUserToResizeColumns = false;
+            this.dataGridViewPeople.AllowUserToResizeRows = false;
+            this.dataGridViewPeople.BackgroundColor = System.Drawing.Color.Snow;
+            this.dataGridViewPeople.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPeople.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPeople.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dataGridViewPeople.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewPeople.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewPeople.MultiSelect = false;
             this.dataGridViewPeople.Name = "dataGridViewPeople";
+            this.dataGridViewPeople.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewPeople.Size = new System.Drawing.Size(1224, 485);
             this.dataGridViewPeople.TabIndex = 0;
+            this.dataGridViewPeople.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPeople_CellContentClick);
             this.dataGridViewPeople.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPeople_CellContentDoubleClick);
             // 
             // FormPeople
@@ -150,6 +157,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPeople";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сотрудники";
             this.Load += new System.EventHandler(this.FormPeople_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

@@ -16,16 +16,21 @@ namespace UPOReu
     public partial class FormReportEx : Form
     {
         public SqlConnection connection;
+        // Создаем объект DataAdapter
         public SqlDataAdapter adapterSP;
+        // Создаем объект Dataset
         public DataSet dataSetSP = new DataSet();
 
         public FormReportEx(SqlConnection connection)
         {
+            //Инициализация компонентов расположенных на форме
             InitializeComponent();
+
             this.connection = connection;
             connection.Open();
-            String cmd = "SELECT *, -DATEDIFF(day, [EXTINGUSHER].[date_start], [EXTINGUSHER].[date_created]) FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] ORDER BY DATEDIFF(day, [EXTINGUSHER].[date_created], [EXTINGUSHER].[date_start]) DESC;";
+            String cmd = "SELECT *, -DATEDIFF(day, [EXTINGUSHER].[date_start], [EXTINGUSHER].[date_created]) FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] INNER JOIN [UO] on [UO].[idUO] = [EXTINGUSHER].[idUO] INNER JOIN [USERS] ON [UO].[idUSERS] = [USERS].[idUSERS] ORDER BY DATEDIFF(day, [EXTINGUSHER].[date_created], [EXTINGUSHER].[date_start]) DESC;";
             adapterSP = new SqlDataAdapter(cmd, connection);
+            // Заполняем Dataset
             adapterSP.Fill(dataSetSP, "EXTINGUSHER");
             dataGridViewReport.DataSource = dataSetSP.Tables["EXTINGUSHER"];
             connection.Close();

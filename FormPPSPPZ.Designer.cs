@@ -37,18 +37,21 @@
             this.dataGridViewPPSPPZ.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPPSPPZ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewPPSPPZ.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewPPSPPZ.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewPPSPPZ.Name = "dataGridViewPPSPPZ";
-            this.dataGridViewPPSPPZ.Size = new System.Drawing.Size(284, 261);
+            this.dataGridViewPPSPPZ.Size = new System.Drawing.Size(426, 402);
             this.dataGridViewPPSPPZ.TabIndex = 0;
             this.dataGridViewPPSPPZ.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPPSPPZ_CellContentClick);
             // 
             // FormPPSPPZ
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(426, 402);
             this.Controls.Add(this.dataGridViewPPSPPZ);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPPSPPZ";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPPSPPZ";
             this.Load += new System.EventHandler(this.FormPPSPPZ_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPPSPPZ)).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.textBoxPatronym = new System.Windows.Forms.TextBox();
@@ -42,12 +43,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.maskedTextBoxPhone = new System.Windows.Forms.MaskedTextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -93,9 +95,11 @@
             this.textBoxPassword.Font = new System.Drawing.Font("Arial Unicode MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxPassword.Location = new System.Drawing.Point(134, 71);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxPassword.MaxLength = 8;
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(283, 34);
+            this.textBoxPassword.Size = new System.Drawing.Size(215, 34);
             this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.WordWrap = false;
             // 
             // buttonReg
             // 
@@ -127,7 +131,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(499, 446);
+            this.label1.Location = new System.Drawing.Point(461, 444);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 20);
@@ -200,16 +204,6 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Должность";
             // 
-            // textBoxPhone
-            // 
-            this.textBoxPhone.Font = new System.Drawing.Font("Arial Unicode MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxPhone.Location = new System.Drawing.Point(134, 166);
-            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(283, 34);
-            this.textBoxPhone.TabIndex = 14;
-            this.textBoxPhone.TextChanged += new System.EventHandler(this.textBoxPhone_TextChanged);
-            // 
             // textBoxEmail
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Arial Unicode MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -257,6 +251,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.maskedTextBoxPhone);
             this.panel2.Controls.Add(this.textBoxLastName);
             this.panel2.Controls.Add(this.textBoxName);
             this.panel2.Controls.Add(this.label9);
@@ -265,12 +260,26 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.textBoxEmail);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBoxPhone);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(17, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(437, 268);
             this.panel2.TabIndex = 19;
+            // 
+            // maskedTextBoxPhone
+            // 
+            this.maskedTextBoxPhone.Font = new System.Drawing.Font("Arial Unicode MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maskedTextBoxPhone.Location = new System.Drawing.Point(134, 164);
+            this.maskedTextBoxPhone.Mask = "+7(999) 000-0000";
+            this.maskedTextBoxPhone.Name = "maskedTextBoxPhone";
+            this.maskedTextBoxPhone.Size = new System.Drawing.Size(165, 34);
+            this.maskedTextBoxPhone.TabIndex = 22;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // FormReg
             // 
@@ -285,6 +294,7 @@
             this.Controls.Add(this.buttonReg);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormReg";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Регистрация";
             this.Load += new System.EventHandler(this.FormReg_Load);
             this.panel1.ResumeLayout(false);
@@ -312,11 +322,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPhone;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -40,6 +40,7 @@
             this.ChosePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonDobObject = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjects)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // dataGridViewObjects
             // 
+            this.dataGridViewObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewObjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewObjects.ContextMenuStrip = this.contextMenuStrip;
             this.dataGridViewObjects.Location = new System.Drawing.Point(13, 14);
@@ -149,18 +151,33 @@
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // buttonDobObject
+            // 
+            this.buttonDobObject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.buttonDobObject.Font = new System.Drawing.Font("Arial Unicode MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDobObject.Location = new System.Drawing.Point(1125, 190);
+            this.buttonDobObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonDobObject.Name = "buttonDobObject";
+            this.buttonDobObject.Size = new System.Drawing.Size(144, 129);
+            this.buttonDobObject.TabIndex = 4;
+            this.buttonDobObject.Text = "Добавить объект";
+            this.buttonDobObject.UseVisualStyleBackColor = false;
+            this.buttonDobObject.Click += new System.EventHandler(this.buttonDobObject_Click);
+            // 
             // FormObjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::UPOReu.Properties.Resources.Фон_v11;
             this.ClientSize = new System.Drawing.Size(1311, 485);
+            this.Controls.Add(this.buttonDobObject);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridViewState);
             this.Controls.Add(this.dataGridViewObjects);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormObjects";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список объектов";
             this.Load += new System.EventHandler(this.FormObjects_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewState)).EndInit();
@@ -182,5 +199,6 @@
         private System.Windows.Forms.ToolStripMenuItem UPPPTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ChosePersonToolStripMenuItem;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonDobObject;
     }
 }

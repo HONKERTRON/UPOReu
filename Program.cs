@@ -27,6 +27,8 @@ namespace UPOReu
             first.Close();
             first.Dispose();
 
+            
+
             Application.Run(new FormAuth());
         }
     }

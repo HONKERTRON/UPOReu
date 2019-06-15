@@ -115,5 +115,10 @@ namespace UPOReu
             connection.Close();
             RefreshWindow();
         }
+
+        private void dataGridViewPeople_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

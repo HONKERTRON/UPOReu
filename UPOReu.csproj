@@ -68,6 +68,30 @@
     <Compile Include="FormExtingusher.Designer.cs">
       <DependentUpon>FormExtingusher.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInj.Designer.cs">
+      <DependentUpon>FormInj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsertObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsertObject.Designer.cs">
+      <DependentUpon>FormInsertObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsertSos_obj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsertSos_obj.Designer.cs">
+      <DependentUpon>FormInsertSos_obj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsertUO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsertUO.Designer.cs">
+      <DependentUpon>FormInsertUO.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPPSPPZ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +140,12 @@
     <Compile Include="FormReg.Designer.cs">
       <DependentUpon>FormReg.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTehniq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTehniq.Designer.cs">
+      <DependentUpon>FormTehniq.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUPPPT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +178,18 @@
     <EmbeddedResource Include="FormExtingusher.resx">
       <DependentUpon>FormExtingusher.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormInj.resx">
+      <DependentUpon>FormInj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsertObject.resx">
+      <DependentUpon>FormInsertObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsertSos_obj.resx">
+      <DependentUpon>FormInsertSos_obj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsertUO.resx">
+      <DependentUpon>FormInsertUO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPPSPPZ.resx">
       <DependentUpon>FormPPSPPZ.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormShowPerson.resx">
       <DependentUpon>FormShowPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTehniq.resx">
+      <DependentUpon>FormTehniq.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUO.resx">
       <DependentUpon>FormUO.cs</DependentUpon>

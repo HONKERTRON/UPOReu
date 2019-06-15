@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Data.Sql;
 
 namespace UPOReu
 {
@@ -20,13 +21,15 @@ namespace UPOReu
         public FormAuth()
         {
             InitializeComponent();
-            using (FileStream fstream = File.OpenRead(@".\database"))
+            SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
+            DataTable table = instance.GetDataSources();
+            foreach (DataRow row in table.Rows)
             {
-                byte[] array = new byte[fstream.Length];
-                fstream.Read(array, 0, array.Length);
-                string textFromFile = System.Text.Encoding.Default.GetString(array);
-                connection = new SqlConnection(@"Data Source=" + textFromFile + ";Initial Catalog=UPOReu;Integrated Security=True");
-            }
+                if (row["InstanceName"].ToString() == "")
+                    serverComboBox.Items.Add(row["ServerName"]);
+                else
+                    serverComboBox.Items.Add(row["ServerName"] + "\\" + row["InstanceName"]);
+            }   
         }
 
         private void FormAuth_Load(object sender, EventArgs e)
@@ -69,7 +72,6 @@ namespace UPOReu
                 catch
                 {
                     MessageBox.Show("Нет соединения с базой данных", "Ошибка подключения к базе данных", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                    Close();
                 }
                 
             } 
@@ -78,6 +80,22 @@ namespace UPOReu
         private void textBoxUsername_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection = new SqlConnection(@"Data Source=" + serverComboBox.SelectedItem.ToString() + ";Initial Catalog=UPOReu;Integrated Security=True");
+            try
+            {
+                connection.Open();
+                connection.Close();
+                ///TODO заполнить статус страйп
+                //statusStrip1.Text = "Соединение активно.";
+            }
+            catch
+            {
+                //statusStrip1.Text = "Соединение не активно.";
+            }
         }
     }
 }
