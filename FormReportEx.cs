@@ -62,6 +62,9 @@ namespace UPOReu
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+
             TableContent table = new TableContent("Extingushers");
             for (int i = 0; i < dataGridViewResult.RowCount-1; i++)
             {
@@ -73,14 +76,14 @@ namespace UPOReu
                         );
             }
 
-            File.Delete("OutputDocument.docx");
-            File.Copy("InputTemplate.docx", "OutputDocument.docx");
+            File.Delete(saveFileDialog.FileName);
+            File.Copy("InputTemplate.docx", saveFileDialog.FileName);
 
             var valuesToFill = new Content(
                 new FieldContent("Report date", DateTime.Now.ToString()),
                 table);
 
-            using (var outputDocument = new TemplateProcessor("OutputDocument.docx")
+            using (var outputDocument = new TemplateProcessor(saveFileDialog.FileName)
                 .SetRemoveContentControls(true))
             {
                 outputDocument.FillContent(valuesToFill);
