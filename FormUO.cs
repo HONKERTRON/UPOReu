@@ -23,7 +23,7 @@ namespace UPOReu
         {
             dataSetUO.Clear();
             connection.Open();
-            adapterUO = new SqlDataAdapter("SELECT [idUO], [idOBJECT], [idEXTINGUSHER], [date], [apperience], [mass], [pressure], [state], [actions], [name], [last_name], [patronym] FROM [UO] INNER JOIN [USERS] ON [UO].[idUSERS] = [USERS].[idUSERS] ORDER BY [idUO] ASC", connection);
+            adapterUO = new SqlDataAdapter("SELECT [idUO], [idOBJECT], [date], [apperience], [mass], [pressure], [state], [actions], [name], [last_name], [patronym] FROM [UO] INNER JOIN [USERS] ON [UO].[idUSERS] = [USERS].[idUSERS] ORDER BY [idUO] ASC", connection);
             builderUO = new SqlCommandBuilder(adapterUO);
             adapterUO.Fill(dataSetUO, "UO");
 

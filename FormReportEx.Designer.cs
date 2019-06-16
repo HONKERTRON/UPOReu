@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dateTimePickerAfter = new System.Windows.Forms.DateTimePicker();
             this.buttonSave = new System.Windows.Forms.Button();
             this.dataGridViewReport = new System.Windows.Forms.DataGridView();
             this.dataGridViewResult = new System.Windows.Forms.DataGridView();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.dateTimePickerBefore = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -49,6 +51,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.dateTimePickerBefore);
+            this.splitContainer1.Panel1.Controls.Add(this.dateTimePickerAfter);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSave);
             this.splitContainer1.Panel1.Controls.Add(this.dataGridViewReport);
             // 
@@ -58,6 +62,14 @@
             this.splitContainer1.Size = new System.Drawing.Size(588, 341);
             this.splitContainer1.SplitterDistance = 196;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // dateTimePickerAfter
+            // 
+            this.dateTimePickerAfter.Location = new System.Drawing.Point(0, 292);
+            this.dateTimePickerAfter.Name = "dateTimePickerAfter";
+            this.dateTimePickerAfter.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerAfter.TabIndex = 2;
+            this.dateTimePickerAfter.ValueChanged += new System.EventHandler(this.dateTimePickerAfter_ValueChanged);
             // 
             // buttonSave
             // 
@@ -94,6 +106,14 @@
             this.saveFileDialog.DefaultExt = "|*.docx";
             this.saveFileDialog.Filter = "(*.docx)|*.docx|(*.doc)|*.doc";
             // 
+            // dateTimePickerBefore
+            // 
+            this.dateTimePickerBefore.Location = new System.Drawing.Point(0, 266);
+            this.dateTimePickerBefore.Name = "dateTimePickerBefore";
+            this.dateTimePickerBefore.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerBefore.TabIndex = 3;
+            this.dateTimePickerBefore.ValueChanged += new System.EventHandler(this.dateTimePickerBefore_ValueChanged);
+            // 
             // FormReportEx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,5 +141,7 @@
         private System.Windows.Forms.DataGridView dataGridViewResult;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAfter;
+        private System.Windows.Forms.DateTimePicker dateTimePickerBefore;
     }
 }

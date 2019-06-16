@@ -41,6 +41,11 @@ namespace UPOReu
                 columnNames[0] = dataGridViewReport.Columns[i].Name;
                 dataGridViewResult.Columns.Add(columnNames[0], columnNames[0]);
             }
+
+            dateTimePickerAfter.Format = DateTimePickerFormat.Custom;
+            dateTimePickerAfter.CustomFormat = "yyyy-M-d";
+            dateTimePickerBefore.Format = DateTimePickerFormat.Custom;
+            dateTimePickerBefore.CustomFormat = "yyyy-M-d";
         }
 
         private void FormReportEx_Load(object sender, EventArgs e)
@@ -89,6 +94,30 @@ namespace UPOReu
                 outputDocument.FillContent(valuesToFill);
                 outputDocument.SaveChanges();
             }
+        }
+
+        private void dateTimePickerAfter_ValueChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+            String cmd = "SELECT *, -DATEDIFF(day, [EXTINGUSHER].[date_start], [EXTINGUSHER].[date_created]) FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] INNER JOIN [UO] on [UO].[idUO] = [EXTINGUSHER].[idUO] INNER JOIN [USERS] ON [UO].[idUSERS] = [USERS].[idUSERS] WHERE [date_start] > '" + dateTimePickerAfter.Text + "' AND [date_start] < '" + dateTimePickerBefore.Text + "' ORDER BY DATEDIFF(day, [EXTINGUSHER].[date_created], [EXTINGUSHER].[date_start]) DESC;";
+            adapterSP = new SqlDataAdapter(cmd, connection);
+            // Заполняем Dataset
+            dataSetSP.Clear();
+            adapterSP.Fill(dataSetSP, "EXTINGUSHER");
+            dataGridViewReport.DataSource = dataSetSP.Tables["EXTINGUSHER"];
+            connection.Close();
+        }
+
+        private void dateTimePickerBefore_ValueChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+            String cmd = "SELECT *, -DATEDIFF(day, [EXTINGUSHER].[date_start], [EXTINGUSHER].[date_created]) FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] INNER JOIN [UO] on [UO].[idUO] = [EXTINGUSHER].[idUO] INNER JOIN [USERS] ON [UO].[idUSERS] = [USERS].[idUSERS] WHERE [date_start] > '" + dateTimePickerAfter.Text + "' AND [date_start] < '" + dateTimePickerBefore.Text + "' ORDER BY DATEDIFF(day, [EXTINGUSHER].[date_created], [EXTINGUSHER].[date_start]) DESC;";
+            adapterSP = new SqlDataAdapter(cmd, connection);
+            // Заполняем Dataset
+            dataSetSP.Clear();
+            adapterSP.Fill(dataSetSP, "EXTINGUSHER");
+            dataGridViewReport.DataSource = dataSetSP.Tables["EXTINGUSHER"];
+            connection.Close();
         }
     }
 }
