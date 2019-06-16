@@ -29,7 +29,8 @@ namespace UPOReu
                     serverComboBox.Items.Add(row["ServerName"]);
                 else
                     serverComboBox.Items.Add(row["ServerName"] + "\\" + row["InstanceName"]);
-            }   
+            }
+            statusStrip1.Items[1].Text = "Не установлено.";
         }
 
         private void FormAuth_Load(object sender, EventArgs e)
@@ -95,11 +96,11 @@ namespace UPOReu
                 connection.Open();
                 connection.Close();
                 ///TODO заполнить статус страйп
-                //statusStrip1.Text = "Соединение активно.";
+                statusStrip1.Items[1].Text = "Активно.";
             }
             catch
             {
-                //statusStrip1.Text = "Соединение не активно.";
+                statusStrip1.Items[1].Text = "Не активно.";
             }
         }
     }
