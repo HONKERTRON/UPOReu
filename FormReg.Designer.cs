@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReg));
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.textBoxPatronym = new System.Windows.Forms.TextBox();
@@ -47,6 +48,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.maskedTextBoxPhone = new System.Windows.Forms.MaskedTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -97,8 +99,9 @@
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxPassword.MaxLength = 8;
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(215, 34);
+            this.textBoxPassword.Size = new System.Drawing.Size(235, 34);
             this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             this.textBoxPassword.WordWrap = false;
             // 
             // buttonReg
@@ -238,6 +241,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBoxPassword);
             this.panel1.Controls.Add(this.textBoxUsername);
             this.panel1.Controls.Add(this.comboBoxRole);
@@ -248,6 +252,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(437, 180);
             this.panel1.TabIndex = 18;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button1.BackgroundImage = global::UPOReu.Properties.Resources.глаз;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(376, 71);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 36);
+            this.button1.TabIndex = 20;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -292,6 +307,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonReg);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormReg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -329,5 +345,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPhone;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -73,6 +73,16 @@ namespace UPOReu.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap глаз {
+            get {
+                object obj = ResourceManager.GetObject("глаз", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Заставка {
             get {
                 object obj = ResourceManager.GetObject("Заставка", resourceCulture);

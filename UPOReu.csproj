@@ -74,6 +74,12 @@
     <Compile Include="FormInj.Designer.cs">
       <DependentUpon>FormInj.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInsertEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsertEx.Designer.cs">
+      <DependentUpon>FormInsertEx.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInsertObject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UPOReuDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UPOReuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UPOReuDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UPOReuDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Zastavka.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInj.resx">
       <DependentUpon>FormInj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsertEx.resx">
+      <DependentUpon>FormInsertEx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInsertObject.resx">
       <DependentUpon>FormInsertObject.cs</DependentUpon>
@@ -246,6 +265,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="UPOReuDataSet.xsc">
+      <DependentUpon>UPOReuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UPOReuDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UPOReuDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UPOReuDataSet.xss">
+      <DependentUpon>UPOReuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UPOReuDataSet1.xsc">
+      <DependentUpon>UPOReuDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="UPOReuDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UPOReuDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UPOReuDataSet1.xss">
+      <DependentUpon>UPOReuDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -267,6 +308,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\заставоччка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\глаз.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

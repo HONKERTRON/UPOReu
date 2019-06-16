@@ -35,6 +35,12 @@ namespace UPOReu
             dataGridViewEx.Columns[0].ReadOnly = true;
         }
 
+        private void buttonInsertEx_Click(object sender, EventArgs e)
+        {
+            FormInsertEx formInsertEx = new FormInsertEx(connection);
+            formInsertEx.Show();
+        }
+
         public FormExtingusher(SqlConnection connection, int id)
         {
             InitializeComponent();
