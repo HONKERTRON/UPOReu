@@ -24,7 +24,7 @@ namespace UPOReu
         {
             dataSetObject.Clear();
             connection.Open();
-            adapterObject = new SqlDataAdapter("SELECT [idOBJECT], [name_object], [adress] FROM [OBJECTS] ORDER BY [idOBJECT] ASC", connection);
+            adapterObject = new SqlDataAdapter("SELECT [idOBJECT], [name_object], [adress] FROM [OBJECTS] WHERE [archived] = 0 ORDER BY [idOBJECT] ASC", connection);
             builderObjects = new SqlCommandBuilder(adapterObject);
             adapterObject.Fill(dataSetObject, "OBJECTS");
             dataGridViewObjects.DataSource = dataSetObject.Tables["OBJECTS"];
@@ -156,14 +156,17 @@ namespace UPOReu
         {
             if (dataGridViewObjects.SelectedCells.Count > 0)
             {
-                Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
-                connection.Open();
-                String cmd = "DELETE FROM [OBJECTS] WHERE [idOBJECT] = " + idObject.ToString() + ";";
+                if (dataGridViewObjects.SelectedCells.Count > 0)
+                {
+                    Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+                    connection.Open();
+                    String cmd = "UPDATE [OBJECTS] SET [archived] = 1 WHERE [idOBJECT] = " + idObject.ToString() + ";";
 
-                SqlCommand query_ = new SqlCommand(cmd, connection);
-                int res = Convert.ToInt32(query_.ExecuteNonQuery());
-                connection.Close();
-                RefreshWindow(-1);
+                    SqlCommand query_ = new SqlCommand(cmd, connection);
+                    int res = Convert.ToInt32(query_.ExecuteNonQuery());
+                    connection.Close();
+                    RefreshWindow(-1);
+                }
             }
         }
 
