@@ -35,7 +35,7 @@ namespace UPOReu
             {
                 dataSetState.Clear();
                 connection.Open();
-                adapterState = new SqlDataAdapter("SELECT [OBJECT_STATEid], [date], [description] FROM [OBJECT_STATE] WHERE [idOBJECT] = " + secondary_id.ToString() + " ORDER BY [OBJECT_STATEid] ASC", connection);
+                adapterState = new SqlDataAdapter("SELECT [OBJECT_STATEid], [date], [description] FROM [OBJECT_STATE] WHERE [idOBJECT] = " + secondary_id.ToString() + " ORDER BY [date] ASC", connection);
                 builderState = new SqlCommandBuilder(adapterState);
                 adapterState.Fill(dataSetState, "OBJECT_STATE");
                 dataGridViewState.DataSource = dataSetState.Tables["OBJECT_STATE"];
@@ -154,20 +154,32 @@ namespace UPOReu
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
-            connection.Open();
-            String cmd = "DELETE FROM [OBJECTS] WHERE [idOBJECT] = " + idObject.ToString()+ ";";
+            if (dataGridViewObjects.SelectedCells.Count > 0)
+            {
+                Int32 idObject = Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value);
+                connection.Open();
+                String cmd = "DELETE FROM [OBJECTS] WHERE [idOBJECT] = " + idObject.ToString() + ";";
 
-            SqlCommand query_ = new SqlCommand(cmd, connection);
-            int res = Convert.ToInt32(query_.ExecuteNonQuery());
-            connection.Close();
-            RefreshWindow(-1);
+                SqlCommand query_ = new SqlCommand(cmd, connection);
+                int res = Convert.ToInt32(query_.ExecuteNonQuery());
+                connection.Close();
+                RefreshWindow(-1);
+            }
         }
 
         private void buttonDobObject_Click(object sender, EventArgs e)
         {
             FormInsertObject fio = new FormInsertObject(connection);
             fio.Show();
+        }
+
+        private void addStateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewObjects.SelectedCells.Count > 0)
+            {
+                FormInsertSos_obj addState = new FormInsertSos_obj(connection, Convert.ToInt32(dataGridViewObjects.Rows[dataGridViewObjects.SelectedCells[0].RowIndex].Cells[0].Value));
+                addState.Show();
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
