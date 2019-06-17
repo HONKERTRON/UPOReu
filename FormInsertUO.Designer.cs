@@ -179,6 +179,7 @@
             this.Name = "FormInsertUO";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление журнала учета огнетушителей";
+            this.Load += new System.EventHandler(this.FormInsertUO_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

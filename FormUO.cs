@@ -18,38 +18,70 @@ namespace UPOReu
         public DataSet dataSetUO = new DataSet();
         public DataSet dataSetSP= new DataSet();
         public SqlCommandBuilder builderUO;
+        public int select = 0; 
+        public int objectid = 1;
 
         public void RefreshWindow(int secondary_id)
         {
-            dataSetUO.Clear();
-            connection.Open();
-            adapterUO = new SqlDataAdapter("SELECT [idUO], [idOBJECT], [date], [apperience], [mass], [pressure], [state], [actions], [name], [last_name], [patronym] FROM [UO] INNER JOIN [USERS] ON [UO].[idUSERS] = [USERS].[idUSERS] ORDER BY [idUO] ASC", connection);
-            builderUO = new SqlCommandBuilder(adapterUO);
-            adapterUO.Fill(dataSetUO, "UO");
+            if (objectid == -1)
+            {
+                dataSetUO.Clear();
+                connection.Open();
+                adapterUO = new SqlDataAdapter("SELECT [idUO], [idOBJECT], [date], [apperience], [mass], [pressure], [state], [actions], [name], [last_name], [patronym] FROM [UO] INNER JOIN [USERS] ON [UO].[idUSERS] = [USERS].[idUSERS] ORDER BY [idUO] ASC", connection);
+                builderUO = new SqlCommandBuilder(adapterUO);
+                adapterUO.Fill(dataSetUO, "UO");
 
-            //connection.Open();
-            //String cmd = "SELECT * FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] WHERE [EXTINGUSHER].[idEXTINGUSHER] = " + id.ToString() + ";";
-            //adapterUO = new SqlDataAdapter(cmd, connection);
-            //adapterSP.Fill(dataSetSP, "EXTINGUSHER");
-            //dataGridViewEx.DataSource = dataSetSP.Tables["EXTINGUSHER"];
-            //connection.Close();
-
-
-            //SELECT p.id, p.name `Имя сотрудника`, ps.id `pos.id`, ps.name `Должность
-            //FROM `persons` p
-            //INNER JOIN `positions` ps ON ps.id = p.post_id;
+                //connection.Open();
+                //String cmd = "SELECT * FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] WHERE [EXTINGUSHER].[idEXTINGUSHER] = " + id.ToString() + ";";
+                //adapterUO = new SqlDataAdapter(cmd, connection);
+                //adapterSP.Fill(dataSetSP, "EXTINGUSHER");
+                //dataGridViewEx.DataSource = dataSetSP.Tables["EXTINGUSHER"];
+                //connection.Close();
 
 
-            dataGridViewUO.DataSource = dataSetUO.Tables["UO"];
-            connection.Close();
-            dataGridViewUO.Columns[0].ReadOnly = true;
+                //SELECT p.id, p.name `Имя сотрудника`, ps.id `pos.id`, ps.name `Должность
+                //FROM `persons` p
+                //INNER JOIN `positions` ps ON ps.id = p.post_id;
+
+
+                dataGridViewUO.DataSource = dataSetUO.Tables["UO"];
+                connection.Close();
+                dataGridViewUO.Columns[0].ReadOnly = true;
+            }
+            else
+            {
+                dataSetUO.Clear();
+                connection.Open();
+                adapterUO = new SqlDataAdapter("SELECT [idUO], [idOBJECT], [date], [apperience], [mass], [pressure], [state], [actions], [name], [last_name], [patronym] FROM [UO] INNER JOIN [USERS] ON [UO].[idUSERS] = [USERS].[idUSERS] WHERE [idOBJECT] = " + objectid.ToString() + " ORDER BY [idUO] ASC", connection);
+                builderUO = new SqlCommandBuilder(adapterUO);
+                adapterUO.Fill(dataSetUO, "UO");
+
+                //connection.Open();
+                //String cmd = "SELECT * FROM [EXTINGUSHER] INNER JOIN [TYPE_EX] ON [EXTINGUSHER].[type_ex] = [TYPE_EX].[type_ex] INNER JOIN [MANUFACTURER] ON [EXTINGUSHER].[idMANUFACTURER] = [MANUFACTURER].[idMANUFACTURER] WHERE [EXTINGUSHER].[idEXTINGUSHER] = " + id.ToString() + ";";
+                //adapterUO = new SqlDataAdapter(cmd, connection);
+                //adapterSP.Fill(dataSetSP, "EXTINGUSHER");
+                //dataGridViewEx.DataSource = dataSetSP.Tables["EXTINGUSHER"];
+                //connection.Close();
+
+
+                //SELECT p.id, p.name `Имя сотрудника`, ps.id `pos.id`, ps.name `Должность
+                //FROM `persons` p
+                //INNER JOIN `positions` ps ON ps.id = p.post_id;
+
+
+                dataGridViewUO.DataSource = dataSetUO.Tables["UO"];
+                connection.Close();
+                dataGridViewUO.Columns[0].ReadOnly = true;
+            }
         }
 
 
-        public FormUO(SqlConnection connection, int id)
+        public FormUO(SqlConnection connection, int id, int select = 0)
         {
             InitializeComponent();
             this.connection = connection;
+            this.select = select;
+            this.objectid = id;
             builderUO = new SqlCommandBuilder(adapterUO);
             RefreshWindow(-1);
 
@@ -71,14 +103,17 @@ namespace UPOReu
 
         private void dataGridViewUO_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            connection.Open();
-            Int32 idObject = Convert.ToInt32(dataGridViewUO.Rows[dataGridViewUO.SelectedCells[0].RowIndex].Cells[1].Value);
-            String cmd = "SELECT [idEXTINGUSHER] FROM [EXTINGUSHER] WHERE [idUO] = " + idObject.ToString() + ";";
-            SqlCommand query_ = new SqlCommand(cmd, connection);
-            idObject = Convert.ToInt32(query_.ExecuteScalar());
-            connection.Close();
-            FormExtingusher formEx = new FormExtingusher(connection, idObject);
-            formEx.Show();
+            if (select == 0)
+            {
+                connection.Open();
+                Int32 idObject = Convert.ToInt32(dataGridViewUO.Rows[dataGridViewUO.SelectedCells[0].RowIndex].Cells[1].Value);
+                String cmd = "SELECT [idEXTINGUSHER] FROM [EXTINGUSHER] WHERE [idUO] = " + idObject.ToString() + ";";
+                SqlCommand query_ = new SqlCommand(cmd, connection);
+                idObject = Convert.ToInt32(query_.ExecuteScalar());
+                connection.Close();
+                FormExtingusher formEx = new FormExtingusher(connection, idObject);
+                formEx.Show();
+            }
         }
 
         private void FormUO_Load(object sender, EventArgs e)
@@ -86,7 +121,7 @@ namespace UPOReu
 
         }
 
-        private void dataGridViewUO_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridViewUO_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

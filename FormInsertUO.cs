@@ -16,5 +16,10 @@ namespace UPOReu
         {
             InitializeComponent();
         }
+
+        private void FormInsertUO_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
