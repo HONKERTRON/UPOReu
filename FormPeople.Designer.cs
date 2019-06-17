@@ -31,10 +31,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.buttonDeletePeople = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBoxLastname = new System.Windows.Forms.TextBox();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxPhone = new System.Windows.Forms.TextBox();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.dataGridViewPeople = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -47,7 +44,6 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -55,26 +51,23 @@
             this.splitContainer1.Panel1.BackgroundImage = global::UPOReu.Properties.Resources.Фон_v11;
             this.splitContainer1.Panel1.Controls.Add(this.buttonDeletePeople);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Controls.Add(this.textBoxLastname);
-            this.splitContainer1.Panel1.Controls.Add(this.textBoxName);
-            this.splitContainer1.Panel1.Controls.Add(this.textBoxPhone);
-            this.splitContainer1.Panel1.Controls.Add(this.textBoxEmail);
+            this.splitContainer1.Panel1.Controls.Add(this.textBoxSearch);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewPeople);
-            this.splitContainer1.Size = new System.Drawing.Size(1613, 485);
-            this.splitContainer1.SplitterDistance = 383;
-            this.splitContainer1.SplitterWidth = 6;
+            this.splitContainer1.Size = new System.Drawing.Size(913, 315);
+            this.splitContainer1.SplitterDistance = 216;
             this.splitContainer1.TabIndex = 0;
             // 
             // buttonDeletePeople
             // 
             this.buttonDeletePeople.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.buttonDeletePeople.Font = new System.Drawing.Font("Arial Unicode MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDeletePeople.Location = new System.Drawing.Point(12, 353);
+            this.buttonDeletePeople.Location = new System.Drawing.Point(8, 229);
+            this.buttonDeletePeople.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDeletePeople.Name = "buttonDeletePeople";
-            this.buttonDeletePeople.Size = new System.Drawing.Size(253, 108);
+            this.buttonDeletePeople.Size = new System.Drawing.Size(169, 70);
             this.buttonDeletePeople.TabIndex = 3;
             this.buttonDeletePeople.Text = "Удалить учетную запись";
             this.buttonDeletePeople.UseVisualStyleBackColor = false;
@@ -85,49 +78,22 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.button1.Font = new System.Drawing.Font("Arial Unicode MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(12, 234);
+            this.button1.Location = new System.Drawing.Point(8, 152);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(253, 113);
+            this.button1.Size = new System.Drawing.Size(169, 73);
             this.button1.TabIndex = 2;
             this.button1.Text = "Создать новую учетную запись";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBoxLastname
+            // textBoxSearch
             // 
-            this.textBoxLastname.Location = new System.Drawing.Point(29, 100);
-            this.textBoxLastname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxLastname.Name = "textBoxLastname";
-            this.textBoxLastname.Size = new System.Drawing.Size(172, 26);
-            this.textBoxLastname.TabIndex = 1;
-            this.textBoxLastname.TextChanged += new System.EventHandler(this.textBoxLastname_TextChanged);
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Location = new System.Drawing.Point(29, 48);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(172, 26);
-            this.textBoxName.TabIndex = 0;
-            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
-            // 
-            // textBoxPhone
-            // 
-            this.textBoxPhone.Location = new System.Drawing.Point(29, 48);
-            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(172, 26);
-            this.textBoxPhone.TabIndex = 0;
-            this.textBoxPhone.TextChanged += new System.EventHandler(this.textBoxPhone_textChanged);
-            // 
-            // textBoxEmail
-            // 
-            this.textBoxEmail.Location = new System.Drawing.Point(29, 48);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(172, 26);
-            this.textBoxEmail.TabIndex = 0;
-            this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxPhone_textChanged);
+            this.textBoxSearch.Location = new System.Drawing.Point(19, 12);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(116, 20);
+            this.textBoxSearch.TabIndex = 0;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // dataGridViewPeople
             // 
@@ -139,23 +105,21 @@
             this.dataGridViewPeople.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewPeople.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dataGridViewPeople.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewPeople.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewPeople.MultiSelect = false;
             this.dataGridViewPeople.Name = "dataGridViewPeople";
             this.dataGridViewPeople.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridViewPeople.Size = new System.Drawing.Size(1224, 485);
+            this.dataGridViewPeople.Size = new System.Drawing.Size(693, 315);
             this.dataGridViewPeople.TabIndex = 0;
             this.dataGridViewPeople.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPeople_CellContentClick);
             this.dataGridViewPeople.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPeople_CellContentDoubleClick);
             // 
             // FormPeople
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::UPOReu.Properties.Resources.Фон_v11;
-            this.ClientSize = new System.Drawing.Size(1613, 485);
+            this.ClientSize = new System.Drawing.Size(913, 315);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPeople";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сотрудники";
@@ -174,10 +138,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         public System.Windows.Forms.DataGridView dataGridViewPeople;
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxLastname;
-        private System.Windows.Forms.TextBox textBoxPhone;
-        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonDeletePeople;
     }

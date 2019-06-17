@@ -40,11 +40,10 @@
             // 
             this.dataGridViewUO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUO.GridColor = System.Drawing.Color.Tomato;
-            this.dataGridViewUO.Location = new System.Drawing.Point(4, 1);
-            this.dataGridViewUO.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridViewUO.Location = new System.Drawing.Point(3, 1);
             this.dataGridViewUO.Name = "dataGridViewUO";
             this.dataGridViewUO.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridViewUO.Size = new System.Drawing.Size(1639, 328);
+            this.dataGridViewUO.Size = new System.Drawing.Size(1093, 213);
             this.dataGridViewUO.TabIndex = 0;
             this.dataGridViewUO.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUO_CellContentClick);
             // 
@@ -53,26 +52,30 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.buttonUO);
-            this.panel1.Location = new System.Drawing.Point(12, 337);
+            this.panel1.Location = new System.Drawing.Point(8, 219);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(952, 151);
+            this.panel1.Size = new System.Drawing.Size(635, 98);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(267, 32);
+            this.button1.Location = new System.Drawing.Point(178, 21);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 50);
+            this.button1.Size = new System.Drawing.Size(142, 32);
             this.button1.TabIndex = 1;
             this.button1.Text = "Добавить запись";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonUO
             // 
-            this.buttonUO.Location = new System.Drawing.Point(52, 32);
+            this.buttonUO.Location = new System.Drawing.Point(35, 21);
+            this.buttonUO.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUO.Name = "buttonUO";
-            this.buttonUO.Size = new System.Drawing.Size(209, 50);
+            this.buttonUO.Size = new System.Drawing.Size(139, 32);
             this.buttonUO.TabIndex = 0;
             this.buttonUO.Text = "button1";
             this.buttonUO.UseVisualStyleBackColor = true;
@@ -80,12 +83,11 @@
             // 
             // FormUO
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1858, 500);
+            this.ClientSize = new System.Drawing.Size(913, 325);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridViewUO);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormUO";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Учет огнетушителей";

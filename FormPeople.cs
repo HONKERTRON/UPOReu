@@ -23,7 +23,7 @@ namespace UPOReu
         {
             dataSetPeople.Clear();
             connection.Open();
-            String cmd = "SELECT [idUSERS], [name], [last_name], [patronym], [phone_number], [email] FROM [USERS] WHERE [name] LIKE '%" + textBoxName.Text + "%' AND [last_name] LIKE '%" + textBoxLastname.Text + "%' AND [phone_number] LIKE '%"+ textBoxPhone.Text + "%' AND [email] LIKE '%"+ textBoxEmail.Text + "%' ORDER BY [idUSERS] ASC ";
+            String cmd = "SELECT [idUSERS], [name], [last_name], [patronym], [phone_number], [email] FROM [USERS] WHERE CONCAT([name], [last_name], [patronym], [phone_number], [email]) LIKE '%" + textBoxSearch.Text + "%' ORDER BY [idUSERS] ASC;";
             adapterPeople = new SqlDataAdapter(cmd, connection);
             adapterPeople.Fill(dataSetPeople, "USERS");
             builderPeople = new SqlCommandBuilder(adapterPeople);
@@ -57,21 +57,6 @@ namespace UPOReu
         }
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
-        {
-            RefreshWindow();
-        }
-
-        private void textBoxLastname_TextChanged(object sender, EventArgs e)
-        {
-            RefreshWindow();
-        }
-
-        private void textBoxPhone_textChanged(object sender, EventArgs e)
-        {
-            RefreshWindow();
-        }
-
-        private void textBoxEmail_textChanged(object sender, EventArgs e)
         {
             RefreshWindow();
         }

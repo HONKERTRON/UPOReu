@@ -86,15 +86,15 @@ namespace UPOReu
             RefreshWindow(-1);
 
             //столбцы таблицы
-            dataGridViewUO.Columns[0].HeaderText = "Ключ объекта";
-            dataGridViewUO.Columns[1].HeaderText = "Ключ огнетушиетля";
+            dataGridViewUO.Columns[0].HeaderText = "Номер записи";
+            dataGridViewUO.Columns[1].HeaderText = "Ключ объекта";
             dataGridViewUO.Columns[2].HeaderText = "Дата проверки";
             dataGridViewUO.Columns[3].HeaderText = "Ключ пользователя";
-            dataGridViewUO.Columns[4].HeaderText = "Apperience";
+            dataGridViewUO.Columns[4].HeaderText = "Внешний вид";
             dataGridViewUO.Columns[5].HeaderText = "Масса";
-            dataGridViewUO.Columns[6].HeaderText = "Pressure";
-            dataGridViewUO.Columns[7].HeaderText = "State";
-            dataGridViewUO.Columns[8].HeaderText = "Actions";
+            dataGridViewUO.Columns[6].HeaderText = "Давление";
+            dataGridViewUO.Columns[7].HeaderText = "Состояние";
+            dataGridViewUO.Columns[8].HeaderText = "Действия";
 
             //стиль столбцов
             this.dataGridViewUO.DefaultCellStyle.Font = new Font("Arial Unicode MS", 10);
@@ -129,6 +129,12 @@ namespace UPOReu
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormInsertUO formIUO = new FormInsertUO(connection, objectid);
+            formIUO.Show();
         }
 
         private void buttonUO_Click(object sender, EventArgs e)
