@@ -43,10 +43,12 @@ namespace UPOReu
             this.dataGridViewPeople.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Unicode MS", 10);
         }
 
+        //mode означает режим, т.е. то, для чего мы создали форму: показать людей или выбрать человека из списка
         public FormPeople(SqlConnection connection, int mode)
         {
             InitializeComponent();
             this.connection = connection;
+            //Сохранили режим
             this.select = mode;
             RefreshWindow();
         }
@@ -63,15 +65,19 @@ namespace UPOReu
 
         private void dataGridViewPeople_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //В зависимости от режима, делаем разные вещи
             if (select > 0)
             {
+                //Если выбираем, то просто сохраняем id человека в переменную
                 Int32 idPerson = Convert.ToInt32(dataGridViewPeople.Rows[dataGridViewPeople.SelectedCells[0].RowIndex].Cells[0].Value);
                 select = idPerson;
                 Close();
             }
             else
             {
+                //Если не выбираем, то просто открываем новое окошко, где можно подробнее рассмотреть человека
                 Int32 idPerson = Convert.ToInt32(dataGridViewPeople.Rows[dataGridViewPeople.SelectedCells[0].RowIndex].Cells[0].Value);
+                //Создали новую формочку, передали через конструктор не только соединение, но и id человека, чтобы сразу знать, кого показывать
                 FormShowPerson formSP = new FormShowPerson(connection, idPerson);
                 formSP.Show();
             }
@@ -89,8 +95,10 @@ namespace UPOReu
             adapterPeople.UpdateCommand = builderPeople.GetUpdateCommand();
             adapterPeople.InsertCommand = builderPeople.GetInsertCommand();
             adapterPeople.DeleteCommand = builderPeople.GetDeleteCommand();
-
+            //Коммандбилдер умеет сам генерировать автоматические запросы к БД
+            //Сохранили изменения
             dataSetPeople.AcceptChanges();
+            //Выполнили автоматические запросы к БД
             adapterPeople.Update(dataSetPeople.Tables["USERS"]);
             Int32 idObject = Convert.ToInt32(dataGridViewPeople.Rows[dataGridViewPeople.SelectedCells[0].RowIndex].Cells[0].Value);
             connection.Open();
