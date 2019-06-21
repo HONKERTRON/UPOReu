@@ -24,9 +24,11 @@ namespace UPOReu
         {
             ///TODO Finish registration
             connection.Open();
+            //Запрос на поиск человека с таким юзернеймом
             SqlCommand query = new SqlCommand("SELECT [idUSERS] FROM [USERS] WHERE [username] = '"+ textBoxUsername.Text+"';", connection);
             SqlDataReader reader = query.ExecuteReader();
             List<String> list = new List<String>();
+            //Заполняем спсок результатами
             while (reader.Read())
             {
                 list.Add(reader[0].ToString());
@@ -38,13 +40,16 @@ namespace UPOReu
             }
             else
             {
+                //Если человек нашелс
                 if (list.Count > 0)
                 {
                     label1.Text = "Пользователь с таким логином уже существует.";
                 }
+                //Если не нашелся
                 else
                 {
                     connection.Open();
+                    //Запрос на вставку новой записи со всеми данными о человеке
                     String cmd = "INSERT INTO [USERS]([name], [last_name], [patronym], [phone_number], [email], [username], [password]) VALUES ('" + textBoxName.Text + "', '" + textBoxLastName.Text + "', '" + textBoxPatronym.Text + "', '" + maskedTextBoxPhone.Text + "', '" + textBoxEmail.Text + "', '" + textBoxUsername.Text + "', HASHBYTES ('MD5', '" + textBoxPassword.Text + "'));";
                     SqlCommand query_ = new SqlCommand(cmd, connection);
                     label1.Text = "Изменено " + Convert.ToString(query_.ExecuteNonQuery()) + " записей.";
