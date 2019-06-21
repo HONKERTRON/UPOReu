@@ -21,8 +21,11 @@ namespace UPOReu
         public FormAuth()
         {
             InitializeComponent();
+            //Создаем енумератор, который будет искать активные соединения
             SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
+            //Создаем таблицу, в которой будут записаны активные соединения с MSSQL
             DataTable table = instance.GetDataSources();
+            //Заполняем комбобокс соединениями
             foreach (DataRow row in table.Rows)
             {
                 if (row["InstanceName"].ToString() == "")
@@ -30,6 +33,7 @@ namespace UPOReu
                 else
                     serverComboBox.Items.Add(row["ServerName"] + "\\" + row["InstanceName"]);
             }
+            //Текущий статус соединения
             statusStrip1.Items[1].Text = "Не установлено.";
         }
 
@@ -40,32 +44,47 @@ namespace UPOReu
 
         private void buttonAuth_Click(object sender, EventArgs e)
         {
+            //Проверка на обязательные поля
             if ((textBoxUsername.TextLength == 0) || (textBoxPassword.TextLength == 0))
             {
                 label1.Text = "Одно из обязательных полей не заполнено.";
             }
             else
             {
+                //Поскольку, мы не уверены, есть ли соединение с БД, делаем try
                 try
                 {
+                    //Открываем соединение
                     connection.Open();
+                    //Пытаемся получить роль человека, у которого логин и пароль совпадают с указанными
                     String cmd = "SELECT [role] FROM [USERS] WHERE [username] = '" + textBoxUsername.Text + "' AND HASHBYTES ('MD5', '" + textBoxPassword.Text + "') = [password];";
+                    //Создаем запрос
                     SqlCommand query = new SqlCommand(cmd, connection);
+                    //Получаем результат запроса
                     SqlDataReader reader = query.ExecuteReader();
                     List<String> list = new List<String>();
+                    //Заполняем список результатами
                     while (reader.Read())
                     {
                         list.Add(reader[0].ToString());
                     }
+                    //Закрываем соединение
                     connection.Close();
+                    //Если мы нашли хотя бы 1 человека (успешно залогинились)
                     if (list.Count > 0)
                     {
+                        //Получаем роль в виде числа
                         int role = Convert.ToInt32(list[0]);
+                        //Прячем формочку
                         Hide();
+                        //Делаем что-то в зависимости от роли
                         switch(role)
                         {
+                            //роль 10, суперадмин
                             case 10:
+                                //Создаем главную формочку, передавая туда соединение, указатель на текущую форму и роль
                                 FormMain formMain = new FormMain(connection, this, role); ///TODO Add Roles
+                                //Показываем созданную форму
                                 formMain.Show();
                                 break;
                         }
@@ -90,9 +109,11 @@ namespace UPOReu
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Создаем соединение, на основании выбранной строчки комбобокса
             connection = new SqlConnection(@"Data Source=" + serverComboBox.SelectedItem.ToString() + ";Initial Catalog=UPOReu;Integrated Security=True");
             try
             {
+                //Проверяем соединение
                 connection.Open();
                 connection.Close();
                 ///TODO заполнить статус страйп
